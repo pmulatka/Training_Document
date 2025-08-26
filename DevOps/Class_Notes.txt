@@ -466,7 +466,11 @@ Day 2 : 26th August 2025
 			- Tools
 			
 			
-
+	>>>
+	
+		SDLC :
+		
+			Waterfall/AGILE/DevOps/DevSecOps/GitOps/AIOps/MLOps/SRE,.............
 
 	
 	
