@@ -1,0 +1,65 @@
+		
+			
+#########################
+Day 3 : 28th August 2025
+#########################
+
+
+	Fundamentals of Linux ::::
+	
+		Introduction to Linux!
+		
+			Operating System!:
+			
+				-> It is an interface between the user Applications and Underlying Hardware.
+				
+					Eg.: Windows/Mac/Linux 
+			
+	Linux Operating System 
+	
+		- Open-Source 
+		- Is Secured 
+		- Linux OS was created based on the Unix Operating System 
+		- Is an interface between the user applications and underlying Hardware.
+		- Linux OS is based on the Command User Interface
+		- Core of Linux OS is called kernel!
+			Components of Linux OS Architecture
+				- Networking 
+				- Storage 
+				- IPC - Inter Process Communication
+				- User Management 
+				- Security Management 
+				- Control Groups 
+				- Namespace 
+				- Process 
+			
+		- Command Line Interface 
+		
+		- Linux Distributions :::
+		
+			- Flavors of Linux OS 
+			
+				- Centos / RHEL 
+				- Debian / Ubuntu 
+				- Fedora	
+				
+		
+		
+		Lab Requirements!
+
+			-> Github Account ::
+					- https://github.com/
+					
+					- Maintain the Application files and components 
+					- Training Documentations
+					
+			-> Create AWS Cloud Free-tier Account!
+					- 12 Months 					
+					- Create a Virtual Machine! Linux based.
+					
+			-> DockerHub Account ::
+					- Working with Docker 
+				
+	
+	
+	
