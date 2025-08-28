@@ -1,5 +1,3 @@
-		
-			
 #########################
 Day 3 : 28th August 2025
 #########################
@@ -54,12 +52,166 @@ Day 3 : 28th August 2025
 					- Training Documentations
 					
 			-> Create AWS Cloud Free-tier Account!
-					- 12 Months 					
+					- https://aws.amazon.com/console/
+					
+					- Use this like to create free tier account :
+					
+						- Active Email_ID 
+						- Active Mobile Number
+						- Active Credit/Debit Card - Enable with International Transaction
+											
+					
 					- Create a Virtual Machine! Linux based.
+					
+					- Connect to Virtual Machine 
+					
+						SSH Connection - Secure SHell Connection to Linux VM.
+						
+							- Host Name (VM - External IP Address)
+							
+							- User Name 
+							
+							- User Credentials
+							
+								--> Authentication Types :
+								
+										- Password Based Authentication 
+										
+										- Token Based Authentication
+										
+										- Key Based Authentication						# Default
+										
+										- Passwordless Authentication
+					
+					
 					
 			-> DockerHub Account ::
 					- Working with Docker 
 				
 	
 	
+
+
+
+	Package Management - Package Managers :::
 	
+		- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+	
+			- Centos / RHEL 		===> 	yum package Manager 
+			- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+			- Fedora				===>	dnf (Latest Version of Fedora)
+											yum (Previous Version of Fedora)
+											
+		- Package Managers can be executed only by the root user on Linux
+		
+			- TO work with Package Manager :
+				- Elevate the Access to Root Level 
+					- sudo -i			# This Command is used to elevate the access to root level
+		
+
+	Learn Linux on DevOps Perspectives :
+	
+		What the Role of DevOps Team/Engineer on Linux.
+		
+			- All the DevOps Tools can be installed and Managed in Linux Machines 
+		
+		What is your role here ????
+		
+			- Install all the DevOps Tools 
+			- Package Management - Periodically Upgrade/Uninstall - Backup of the Tools
+			- Managing Remote Servers 
+				- Client Server Architecture 
+				- Server1 (VM)
+					- Client1,2,3,4,5,6
+					
+			- As a DevOps Team we can Manage the Linux Machines
+			
+				- Package Management 
+				- File Management 
+				- User Management 
+				- Access Management 
+				- Remote Servers Management 
+				- Process Automation(Shell Scripting)
+				
+
+		- Package Management :::
+
+			- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+		
+				- Centos / RHEL 		===> 	yum package Manager 
+				- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+				- Fedora				===>	dnf (Latest Version of Fedora)
+												yum (Previous Version of Fedora)
+												
+			- Package Managers can be executed only by the root user on Linux
+			
+				- TO work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+		
+		
+		
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites	
+				Install Actual Tool
+				Post Installation Actions				
+		
+					Eg.: Tomcat :::: 
+					
+						Install Pre-requisites			===> jdk 
+						
+						Install Actual Tool				===> Installed Tomcat 
+						
+						Post Installation Actions		===> Started Tomcat 
+		
+		
+		Package :::
+		
+			-> apt install git 
+			
+			-> apt install jdk 
+			
+			-> apt install maven 
+			
+			-> apt upgrade maven 
+			
+			-> apt remove maven 
+			
+			
+		Package : Web Application Server Package 
+		
+			Eg.: 
+					Tomcat / Nginx / httpd 
+					
+					
+					
+		Types of Packages ::
+		
+			--> Install any software/package :
+			
+					-> Installed & Executed as a tool/service.
+					
+					
+					-> apt install jenkins 
+					
+						--> All Services can be accessible using the external IP Address and its default port number
+						
+						
+
+Next :::
+
+	- Create Virtual Machine 
+	
+	- Connect 
+	
+	- Login to VM 
+	
+	- Work with Linux Command! 
+		- Package Management 
+		- File Management 
+		- User Management 
+		- Access Management 
+		- Remote Servers Management 
+		- Process Automation(Shell Scripting)
