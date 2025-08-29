@@ -215,3 +215,229 @@ Next :::
 		- Access Management 
 		- Remote Servers Management 
 		- Process Automation(Shell Scripting)
+
+
+
+		
+
+#########################
+Day 4 : 29th August 2025
+#########################
+
+	- Login to AWS Console!
+	
+		- Billing 
+		
+			- Create any AWS Resource and track the usage and cost.
+		
+		- IAM - Security Credentials Management
+		
+		- EC2 Services
+		
+			- Create VMs == EC2 Instance
+			
+			
+				
+		
+	
+	- Create EC2 Instance 
+	
+		- Goto EC2 Instance Dashboard 
+		- Launch EC2 Instance 
+		
+			--> Name 			-> Linux_Server
+			--> AMI 			-> Ubuntu - v22.04
+			--> Instance Type 	-> t2.micro / t3.micro (Free Tier Eligible)
+			--> Key Pair		-> Just enter the Name of Key-Pair and Create one.
+								-> Download *.pem file(Private key file)
+		
+				1 VM = 750 Hrs/Month 
+				
+				10 VMs = 75 Hrs/Month
+		
+		
+	- Connect & Login to EC2 Instance ::::
+	
+					- Connect to Virtual Machine 
+					
+						SSH Connection - Secure SHell Connection to Linux VM.
+						
+							- Host Name (VM - External IP Address)
+							
+							- User Name 
+							
+							- User Credentials
+							
+								--> Authentication Types :
+								
+										- Password Based Authentication 
+										
+										- Token Based Authentication
+										
+										- Key Based Authentication						# Default
+										
+										- Passwordless Authentication
+	
+	
+					- Connection Options :
+					
+						- EC2 Instance Connect Option -- Using Web Browser.
+						
+						- Using SSH Agents :	for Windows Users 
+						
+							 - MobaXterm 	==> User Friendly 		
+												Install Mobaxterm in local machine
+												https://mobaxterm.mobatek.net/download-home-edition.html
+												
+							 - putty 
+							 
+						- Using Terminal -->> ssh connection.
+	
+
+	- Work with Linux Command! 
+
+		
+		
+		- clear				# Clear the Screen
+		
+	- Package Management :::
+
+			- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+		
+				- Centos / RHEL 		===> 	yum package Manager 
+				- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+				- Fedora				===>	dnf (Latest Version of Fedora)
+												yum (Previous Version of Fedora)
+												
+			- Package Managers can be executed only by the root user on Linux
+			
+				- TO work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+		
+		
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites	
+				Install Actual Tool
+				Post Installation Actions				
+		
+					Eg.: Tomcat :::: 
+					
+						Install Pre-requisites			===> jdk 
+						
+						Install Actual Tool				===> Installed Tomcat 
+						
+						Post Installation Actions		===> Started Tomcat 
+		
+		
+		Package :::
+		
+			-> apt install git 
+			
+			-> apt install jdk 
+			
+			-> apt install maven 
+			
+			-> apt upgrade maven 
+			
+			-> apt remove maven 
+			
+			
+		Package : Web Application Server Package 
+		
+			Eg.: 
+					Tomcat / Nginx / httpd 
+					
+					
+					
+		Types of Packages ::
+		
+			--> Install any software/package :
+			
+					-> Installed & Executed as a tool/service.
+					
+					
+					-> apt install jenkins 
+					
+						--> All Services can be accessible using the external IP Address and its default port number		
+		
+		- apt update -y 
+		
+		- apt install git -y
+			
+				git --version 				
+				
+		- apt install maven -y
+		
+				mvn --version
+
+				java --version 
+				
+		- which mvn					# which command is to get the installation path of any package.
+		
+		Package :
+		
+			- Stand-alone Tool			Eg.: git/mvn
+			- Service					Eg.: tomcat/nginx/jenkins/docker 
+	
+		Eg.: nginx - web service used to run web applications - it runs in default port 80.
+		
+			Access nginx web service using web browser : 
+			
+			- set up the 
+			
+			<public_ip_Adress>:80
+			
+			13.201.71.169:80
+		
+		- apt install nginx 
+
+		- which nginx						# Used to get the path of installation ?
+
+			- Linux Application Service(nginx/Jenkins) 		
+			
+				- Start / Stop / Enable / Status / restart 
+				
+				systemctl status nginx 
+				
+				systemctl start nginx
+				
+				systemctl stop nginx
+				
+				systemctl enable nginx		# Used to define the service as as start up service
+		
+				systemctl disable nginx		# Used to remove the service from the start-up task list
+				
+				systemctl restart nginx 
+				
+		- apt remove maven -y 				# Uninstall linux package 
+
+
+
+	- File Management ::::
+	
+			- sudo -i 
+			
+			- exit 				# Logout from current linux user 
+
+			- ls 				# Is to List the files and Directories 
+			
+			Navigate to Directories :::
+
+				- pwd				# Get the Present Working Directory
+
+				- cd				# Change Directory
+				
+				- cd <dir_name> 	# Change to a specific directory				
+				
+				- cd /				# This command will take to the root directory			
+			
+				- cd ~				# This command will take to the home directory(Default Directory) of the specific linux user
+									Eg.: 	
+									ubuntu 	===> /home/ubuntu 
+									root	===> /root		
+	
+	
+	
