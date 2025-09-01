@@ -441,3 +441,302 @@ Day 4 : 29th August 2025
 	
 	
 	
+#########################
+Day 5 : 1st Sep. 2025
+#########################	
+
+
+	- File Management ::::
+
+		File Operations :
+		
+			- Open / Read / Delete / Update / Rename / Copy 
+			
+			
+			
+			- echo "Message" 				# output statement - To print msg to terminal 
+			
+			- echo "Record1" > file1.txt 	# Create/update a file with record
+		
+			- echo "Record1" >> file1.txt 	# Add New Record to a file	
+			
+			- touch <file_name>				# To Create Empty file
+			
+			- cat <file_name>				# Read any file
+			
+			
+			- vi Editor						# To Create/Edit file
+			
+			- File Editors :
+			
+				- vi editor					# To Create/Open a file in interactive mode				
+				
+				Eg.: 
+				
+					vi <file_name>			# To Create/Open a file in interactive mode
+					
+					
+					vi sample.txt
+					
+					press :
+					
+						i 					# go to insert mode 	
+
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+					
+						esc :wq				# Save and exit from file 
+						
+						esc :q!				# exit from file without saving the changes 
+			
+		
+			- Rename a file/directory
+
+
+						mv <existing_file_name> <New_file_Name>
+						
+						Eg.: 
+						
+						mv sample1.txt dummyfile1.txt
+						
+			- Delete/Remove files :
+			
+						rm <file_name>
+						
+						rm <file1_name> <file2_name>
+						
+						rm *.txt 		
+		
+
+		Create Directories :
+		
+			mkdir <New_Dir_Name> 				# Make Directory 
+			
+			cd New_Dir_Name						# Navigate to New Directory 
+			
+			cd ..								# Go back to previous Directory
+			
+		Copy files between the directories :
+		
+			cp <source_file> <Target_path>
+			Eg.: 
+			
+			cp s1.txt /home/ubuntu/dir2
+			
+			cp /root/dir1/l1.txt /root/dir2
+			
+					
+		Move files between the directories :
+		
+			mv <source_file> <Target_path>
+			Eg.: 
+			
+			mv s2.txt /home/ubuntu/dir2
+			
+			mv /root/dir1/l1.txt /root/dir2	
+		
+		
+		Remove Directory :
+		
+			rm -rf dir1
+
+		
+		mkdir .dir1		# Create Hidden Directory 
+		
+		touch .tmpfile	# Create Hidden File 
+		
+		ls 				# Get the list of files & Dirs 
+		
+		ls - a			# Get the list of all files & dirs(including hidden files and dirs)
+
+		ll				# Long Listing 		
+		
+			ubuntu@ip-172-31-3-184:~/dir1$ ll
+			total 24
+			drwxrwxr-x  3 ubuntu ubuntu 4096 Sep  1 02:34 ./
+			drwxr-x--- 13 ubuntu ubuntu 4096 Sep  1 02:48 ../
+			-rw-rw-r--  1 ubuntu ubuntu    6 Sep  1 02:30 f2.txt
+			-rw-rw-r--  1 ubuntu ubuntu    6 Sep  1 02:33 f3.txt
+			-rw-rw-r--  1 ubuntu ubuntu    5 Sep  1 02:32 file1.txt
+			drwxrwxr-x  2 ubuntu ubuntu 4096 Sep  1 02:32 sdir1/
+		
+		
+		
+		File Access Management :::
+		
+			file1.txt 
+			
+			pgm.java 
+			
+			scpt.sh 
+			
+			
+		
+		Read 
+		
+		Write 
+		
+		Execute 
+		
+		
+		
+		
+		Owner 
+		
+		Group Users 
+		
+		Public Users 
+		
+		ll				# Long Listing 		
+		
+		ubuntu@ip-172-31-3-184:~/dir1$ ll
+		total 24
+		drwxrwxr-x  3 ubuntu ubuntu 4096 Sep  1 02:34 ./
+		drwxr-x--- 13 ubuntu ubuntu 4096 Sep  1 02:48 ../
+		-rw-rw-r--  1 ubuntu ubuntu    6 Sep  1 02:30 f2.txt
+		-rw-rw-r--  1 ubuntu ubuntu    6 Sep  1 02:33 f3.txt
+		-rw-rw-r--  1 ubuntu ubuntu    5 Sep  1 02:32 file1.txt
+		drwxrwxr-x  2 ubuntu ubuntu 4096 Sep  1 02:32 sdir1/
+		
+		----------
+		
+		-									# Denote dir or file (Possible value:  d or - )
+												'd'  Denotes Directory
+												'-'  Denotes File 
+												
+												
+		 ---								# Denote the Owner Level Access 
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access 
+		
+			---								# Denote the Group Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+			   ---							# Denote the Public User Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+		
+		
+		
+		https://chmod-calculator.com/
+	
+		chmod <Access_Level> <File/Directory_Name>
+		
+		chmod 600 s1.txt
+
+		chmod 600 dir1
+		
+		As a best practise chmod 777 should not be used at any cause!
+		
+		
+		
+	- User Management & Access Management :::
+		
+		
+		Create Linux User :
+
+		SSH Connection :	Secure SHell Connection 
+		
+			-> Host Name 
+			-> User Name 
+			-> User Authentication 
+
+
+			-> Authentication Types :
+			
+				- Password Based Authentication
+				
+				- Key Based Authentication			# Recommended for any Remote Server Communication
+					- Public Key 
+					- Private Key 
+					- authorized keys
+					
+				- Token Based Authentication
+				
+				- Passwordless Authentication
+
+
+
+
+		How to Create Linux User ?
+		
+			Username : devopsadmin 
+			
+			Bash Terminal Access :
+			
+			Home Dir :
+			
+			password :
+			
+			ssh-keys :
+
+
+
+		Create Linux User with SSH Keys :::
+		
+			sudo -i 
+			
+			useradd devopsadmin2 -s /bin/bash -m -d /home/devopsadmin2
+
+			su - devopsadmin2
+
+			exit 
+			
+			sudo -i 
+			
+			# Create Password for Linux User ::::
+			
+			root@ip-172-31-3-184:~# passwd devopsadmin2
+			New password:
+			Retype new password:
+			passwd: password updated successfully
+			root@ip-172-31-3-184:~# exit
+			logout
+			ubuntu@ip-172-31-3-184:~$ su - devopsadmin2
+			Password:
+			devopsadmin2@ip-172-31-3-184:~$
+
+			# Create SSH Key for Linux User ::::
+
+			ssh-keygen -t ecdsa -b 521					#ubuntu 22.04 or higher version of ubuntu				
+
+			cd .ssh
+			
+			ls ~/.ssh 
+
+			#You should see following two files:
+
+			#id_ecdsa - private key
+			#id_ecdsa.pub - public
+			
+			
+			cat id_ecdsa.pub > authorized_keys			# authorized_keys this file name should be same.
+			
+			authorized_keys :::
+				It is the copy of Public Key.
+				
+				Always the private key will be compared with the authorized_keys
+				
+			chmod 600 /home/devopsadmin2/.ssh/*					# Used to Change the Access Mode of Files or Directories
+			
+			
+		Get the List of Linux Users ::::
+			cat /etc/passwd
+		
+		Get the list of Linux User Groups :::: 
+			cat /etc/group
+	
+		sudo -i 
+		
+		apt install docker.io -y 
+		
+		usermod -aG docker devopsadmin2				# Provide access to Docker Service!
