@@ -952,3 +952,403 @@ Use Case :
 				installbuildtools.sh	
 
 				/home/devopsadmin/scripts/$ ./installbuildtools.sh		# Run the Shell Script!	
+
+
+
+
+#########################
+Day 7 : 4th Sep. 2025
+#########################	
+
+	Continue with shell scripting!
+	
+	Building blocks to develop and script or program ?
+	
+	1. Understand the requirement! 
+	
+	2. Choose Scripting Languages!
+	
+
+
+	Why we need Scripting / Programming Langauges ????
+	
+		Applications / Packages 
+		
+	IT Service!
+	
+		Data!
+		
+		What is Data ?
+		
+			- Is a raw text/content - without any meaning!
+			
+			- Eg.: 
+			
+					India 
+						
+		
+		Is an Information ?
+		
+		What is Information ?
+		
+			- Is a Processed Data. 
+			
+			- The Processed Data becomes Information
+			
+					India is a Country 
+
+		
+		
+		How to Handle/Process the Data! 
+		
+			- Programming/Scripting Langauges
+			
+			
+		Variables :
+		
+			x = 5;
+			
+			y = 5;
+			
+			z = 0;
+			
+			a = "hello"
+			
+			
+			b = "Team"
+			
+			To Perform any Arithmetic Operations we need Numerica data!
+			
+			z = x + y 
+			
+			c = a + y 
+			
+			
+		Data Types :
+		
+			int x = 5;
+			
+			x = "Hello" 
+			
+			
+			String a = "Hello"
+			
+			char x = 'A'
+			
+			boolean z = True/False 
+			
+			
+		
+			Sting Stud_Name = "Student1"
+			
+			Array ::
+			
+			String Stud_Name[5] = {"xxx","yyy","zzz","aaa","bbb"}
+									0	  1		2	  3		4
+								
+
+			In Array Variabe, data can be identified using unique index
+			
+			
+				print Stud_Name[0] ==> "xxx"
+			
+				print "aaa" ==> Stud_Name[3]
+				
+				
+			Looping Constructs ::
+			
+				- To iterate / repeat any process to handle the data :
+			
+				- for loop 
+				
+				- while loop 
+				
+			Conditional Statements :
+			
+				- To validate the Data:
+				
+				Stud_name :: "xxxxxxxxxxxxx"
+				
+				Stud_name :: "12312313123"
+				
+				Stud_EMail :: "xxxxxxxxxxxxx"
+				
+				Stud_EMail :: "xxxxxxxxxxxxx@gmail.com"	
+
+				
+				
+			IF Statements 
+			
+				if Stud_name is Numeric 
+				
+				if a > b 
+				
+				if b > c 
+			
+			Switch Case Statements 
+			
+			Manage/Store data in the Permanent storage:
+			
+				File Operations : Create/Read/Write/Update/Delete 
+				
+				Sequential --> 
+				
+				Only Sequential Search is possible 
+				
+				
+			Relational Database Management System - RDBMS 
+			
+				Tables/Columns 
+				
+				
+				Stud_Info - Table :
+				
+				Stud_ID 	Stud_Name 		Email_ID			Address		Mobile 		Course_ID 
+					
+				1001		xxxxxxxxxxxxx	xxx@asdf.com		zzz			9999999999	CID101
+			
+				1002		2342342342324	xxx@asdf.com		zzz			asdfasdf	CID101
+				
+		
+			Script/Program to interact with external Services 
+			
+				- Remote Servers! 
+				
+				- Services 
+				
+					--> API Call to access remote services!
+					
+							- using *.json / *.yaml files 	- based on the key-value pairs
+			
+				
+			
+			Functions ::
+			
+				- Are used to maintain some set of instructions that can be performed very frequently.
+				
+				- Define a function and invoke it any number times 
+				
+				- Reusablity 
+			
+			
+	chmod 755 config-build-tools.sh
+	
+				save the script as installbuildtools.sh 
+
+				/home/devopsadmin/scripts/$ ls 
+				installbuildtools.sh	
+				
+				chmod 755 installbuildtools.sh
+				
+				/home/devopsadmin/scripts/$ ./installbuildtools.sh		# Run the Shell Script!	
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to print Hello World on terminal using echo command
+
+Source Code:
+
+#!/bin/bash
+#
+echo "Hello World"
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to print the calender month by default.
+
+Source Code:
+
+#!/bin/bash
+#	     
+echo "The Month is"
+cal # cal command displays current month by default
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to read user input and perform operations with them.
+
+Source Code:
+
+#!/bin/bash
+echo -n "Enter number 1 : " # -n option supresses newline
+read NUM1 # Read the user input from Standard Input and store in Variable NUM1
+
+echo -n "Enter number 2 : "
+read NUM2
+
+SUM=$(($NUM1 + $NUM2)) # Arithmetic expansion using double parentheses
+echo "The sum is $SUM"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of if condition
+
+#Operators :: 6 Operators
+
+Source Code:
+
+
+#!/bin/bash
+
+NUM1=5 # variabe assignment
+NUM2=2
+
+if [ $NUM1 -gt $NUM2 ] # -gt is to test integer numbers
+then
+    echo "NUM1 > NUM2"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of if else condition
+
+Source Code:
+
+#!/bin/bash
+
+NUM1=2 # Variabe assignment
+NUM2=5
+
+if [ $NUM1 -lt $NUM2 ]  # -lt is to test intiger numbers
+then
+    echo "NUM1 < NUM2"
+else
+    echo "NUM1 > NUM2"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of else if condition
+
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter a number: "				# 1,-1,0
+read NUM
+
+if [ $NUM -gt 0 ]
+then
+    echo "$NUM is +ve"
+elif [ $NUM -lt 0 ]
+then
+    echo "$NUM is -ve"
+else
+    echo "$NUM is 0"
+fi
+
+echo "done"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR							#  a,e,i,o,u
+
+case $CHAR in
+	a) echo "You entered $CHAR which is a vowel";;  # ;; Terminates each option
+	e) echo "You entered $CHAR which is a vowel";;
+	i) echo "You entered $CHAR which is a vowel";;
+	o) echo "You entered $CHAR which is a vowel";;
+	u) echo "You entered $CHAR which is a vowel";;
+	*) echo "You entered $CHAR which is not a vowel";; # Defaults to everything else
+esac
+
+echo "What if you enter upper case letters!!?, Check the next example"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR
+
+case $CHAR in
+	a | A) # Test for both Lower or Upper case letter
+		# You may write commands in this fashion too!!, means multiline commands
+		echo "You entered $CHAR which is a vowel"
+		;; # Terminates each option
+	e | E) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	i | I) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	o | O) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	u | U) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	*)  # Defaults to everything else
+		echo "You entered $CHAR which is not a vowel"
+		;;
+esac
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+A simple script to demonstarte for loop [ C syntax ]
+
+Source Code:
+
+#!/bin/bash
+
+COUNT=0
+
+for ((i = 0; i < 5; i++))
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A script to show the usage of command line arguments, Here we access positional arguments using $1, $2 …
+
+Source Code:
+
+#!/bin/bash
+
+echo "Total no. of argument: $#"
+
+echo "Program name: $0"
+echo "1st argument: $1"
+echo "2nd argument: $2"
+echo "3rd argument: $3"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show the usage of function
+
+Source Code:
+
+
+print_hello
+
+#!/bin/bash
+
+# Function definition
+function print_hello()
+{
+    	echo "====="
+    	echo "Hello"
+    	echo "====="
+}
+
+# Call the function - print_hello
+print_hello
+
+print_hello
+print_hello
+print_hello
+print_hello
+
+	Functions / Methods :
+	
+		- Functions are set of instructions used repeatly within the application
+		
+		- Meant for Code reusalbility
