@@ -1,0 +1,211 @@
+
+
+	
+#########################
+Day 8 : 5th Sep. 2025
+#########################
+
+
+	- Version Control System using GIT ::::
+	
+	What is Version Control System ?
+	
+		- It is used to Version Control the Changes
+		- It is used to Track the Source Code Changes!
+		
+	- Create Source Code! 
+	
+	index.html 
+		
+	<html>
+	---
+	---
+	---
+	--
+	-----
+	--
+	-------
+	</html>
+	
+	save index.html in a file system and test the changes.
+	
+	<html>
+	---
+	---
+	---
+	--
+	-----
+	--
+	-------asdfsdf
+	asdfasdf
+	asdfsfasdfasdfsdf
+	asdf
+	asdfsfasdfasdfsdf
+	</html>	
+
+	save index.html in a file system and test the changes.
+
+	<html>
+	---
+	---asfasdfasdf
+	---asfasdf
+	--asfsdf
+	-----
+	--
+	-------asdfsdf
+	asdfasdf
+	asdfsfasdfasdfsdf
+	asdf
+	asdfsfasdfasdfsdf
+	</html>	
+
+	save index.html in a file system and test the changes.
+
+
+	Using Version Control System :::
+	
+		
+	<html>
+	---
+	---
+	---
+	--
+	-----
+	--
+	-------
+	</html>
+	
+	save index.html in a file system	--> 	index.html_v1.0 			# Tag/Version/Commit_id
+
+	<html>
+	---
+	---
+	---
+	--asdfasdfsadf
+	dfgsdfgsdfgsdfgsdfgsdfgdfg
+	sdfasdfsad	-----
+	--
+	-------
+	</html>
+	
+	save index.html in a file system	--> 	index.html_v1.1 			# Tag/Version/Commit_id
+	save index.html in a file system	--> 	index.html_v1.2 			# Tag/Version/Commit_id
+	save index.html in a file system	--> 	index.html_v1.3 			# Tag/Version/Commit_id
+	save index.html in a file system	--> 	index.html_v1.4 			# Tag/Version/Commit_id
+	save index.html in a file system	--> 	index.html_v1.5 			# Tag/Version/Commit_id
+	save index.html in a file system	--> 	index.html_v1.6 			# Tag/Version/Commit_id
+
+
+	Types of Version Control System :::
+	
+		- Local VCS 
+		
+		- Centralized VCS 
+		
+		- Distributed VCS 
+		
+		
+	
+	GIT :::
+	
+		- Git is  Open-Source Distributed Version Control System 
+		- It is used to Version Control the Changes
+		- It is used to Track the Source Code Changes!
+		- It is used to perform Parallel Development using Branching Technique	
+		
+	
+	- Remote Repository	:	Maintained in the Remote Repository Server 
+		- GitHub 
+		
+		Other similar Products:
+		
+		- Azure Repos 
+		- Gitlab 
+		- BitBucket 
+		- AWS Code Commit 		
+	
+	- Local Repository	: Maintained in the Local Machine 
+		- Install Git Client in Local Machine
+		
+		
+	Working with GIT :
+
+	- Git file workflow 
+	- Git Cli Commands 
+	- Git Branching Techniques & Strategies
+	- GIT Misc. Commands
+	- Remote Repositories
+	
+	
+	- Git File Workflow ::::
+	
+	
+	Local Machine 																					Remote Server 
+	
+	Install git client 
+	
+	
+	Working Directory 				Staging/Index Area						Local Repository		 	Remote Repository
+	
+	index.html 		 --------------> index.html			----------------->   index.html_v1.0 -----------> index.html_v1.0
+						git add 						   git commit 						  git push
+
+
+
+	Developers' Work load :::
+	
+	-	Enhancement Project / Bugfixing 
+	
+	-	Create New Service 
+	
+	
+	Local Machine 																					Remote Server 
+	
+	Install git client 
+	
+	
+	Working Directory 				Staging/Index Area						Local Repository		 	Remote Repository
+	
+	index.html 		 --------------> index.html			----------------->   index.html_v1.0 -----------> index.html_v1.0
+						git add 						   git commit 						  git push
+
+	
+	- Git Clone  			# To Clone/Copy the entire Remote Repository to Local Machine
+	
+	- Git add  				# To add the changes from Working Directory to Staging/Index Area 
+	
+	- Git Commit			# To Commit the changes from Staging/Index Area to Local Repository
+	
+	- Git Push				# To Push the Changes from Local Repository to Remote Repository 
+	
+	- Git Pull/git Fetch :::	
+		
+		# Both git pull & git fetch are used to handle the incremental changes from Remote Repositories
+		
+		# Git Fetch :
+		
+			It will just check for the incremental changes in Remote Repository, if the incremental changes exist, it will update the incremental changes only in the Local Repository. It will NEVER update the Working Directory.
+			Perform explicit Merge/pull to update the Working Directory.
+			
+		# Git Pull :
+		
+			It will check for the incremental changes in Remote Repository, if the incremental changes exist, it will update the incremental changes in the Local Repository as well in the Working Directory.
+			
+			git pull = git fetch + git merge 
+			
+			As a best practise, Git Pull is always recommended to keep the Local Repository to be in-sync with Repository
+			
+
+	- git init 				# To initialize a Local Repository
+							# It will Create a GIT Directory in the Local Machine as part of Working Directory 
+							# It will create a default branch - master/main
+	
+	- Fork 					# Is a process: to Copy a Remote Repository to another Remote Repository
+
+
+	- git remote!
+	
+	
+Next ::
+	
+	Install and Work with git client :
