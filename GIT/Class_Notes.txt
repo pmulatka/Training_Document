@@ -209,3 +209,401 @@ Day 8 : 5th Sep. 2025
 Next ::
 	
 	Install and Work with git client :
+
+
+
+#########################
+Day 9 : 8th Sep. 2025
+#########################
+	
+	Install and Work with git client :
+	
+	Local Machine 																			
+	
+	Install git client ::::		https://git-scm.com/downloads
+	
+		Windows :
+		
+			Git Cmd 	-> Powershell users 
+			
+			Git Bash 	-> Linux Users
+			
+			Git GUI 	-> GUI / Visual Studio Code IDE.
+
+		apt install git -y 			Linux Ubuntu Machine!
+		
+		
+	
+	Working Directory 				Staging/Index Area						Local Repository
+	
+	index.html 		 --------------> index.html			----------------->   index.html_v1.0
+						git add 						   git commit 						
+						
+						
+		Windows Machine :
+		
+			- GIT BASH  --> Based on Linux Bash Shell   ********
+			
+			- GIT CMD 	--> Based on Windows PowerShell 
+			- GIT GUI 	--> GUI Tool 			
+
+
+
+	Open GitBash :
+	
+		git --version 
+		
+		
+	Create dedicated Project Workspace :
+	
+		cd d:
+		
+			mkdir PLDevOps_Workspace 
+				cd PLDevOps_Workspace
+					mkdir Project1 
+					mkdir Project2 
+					mkdir Repo1 
+					mkdir Repo2 
+					
+	
+	Create/Initialize local git repository! 
+	
+	- git init 				# To initialize a Local Repository
+							# It will Create a GIT Directory in the Local Machine as part of Working Directory 
+							# It will create a default branch - master/main
+	
+		
+	Working Directory 				Staging/Index Area						Local Repository
+	
+	file1.txt 		 --------------> file1.txt 			----------------->    
+						git add 						   git commit 						
+									
+									
+	- git status 			# To check the current status of git repository 
+	
+	- Git add  				# To add the changes from Working Directory to Staging/Index Area 
+	
+	- Git Commit			# To Commit the changes from Staging/Index Area to Local Repository
+	
+	- Git log 				# To get the Commit History for tracking the changes 
+	
+	- HEAD Pointer			# Is pointer used by git and it always points to the latest commit of current branch
+
+
+	Process : Very first time after installing GIT 
+	
+	- git init 
+	
+	- git config --global user.name "Loksai"
+	
+	- git config --global user.email "Loksai@asdf.com"
+	
+	- echo "rec1" >> file1.txt 
+	
+	- git add file1.txt 
+	
+	- git commit -m "Created file1.txt"
+
+	- ls 						# Is a Linux Command to get the list of files/Dirs from Working Directory
+	
+	- git ls-files				# To get the list of files that are being tracked by git.
+	
+	
+	
+	
+	GIT ADD :::
+	
+		git add <file_name>	
+		
+		git add <file1_name> <file2_name>
+		
+		git add *.java *.txt <file1>
+		
+		git add .										# . denotes all the untracked files/Changes from working directory
+		
+	
+	GIT LOG ::
+	
+		git log 				# To Commit the changes from Staging/Index Area to Local Repository
+		
+		git log --oneline		# To get the short Commit id and its history 
+		
+		git log -3 
+		
+		git log --oneline -3		
+		
+		git log --stat -1
+	
+		
+	GIT SHOW:
+	
+		git show <Commit_id>	# To the get the details of any specific commit 
+		
+	GIT DIFF :
+	
+		git diff 				# To compare the changes between working directory and Local Repository
+		
+	
+	Undo the Changes from Staging Area :::
+	
+		- git rm --cached <file_name>	# Unstage the changes - the changes will be take back to working directory 
+		
+		- git rm -f <file_name>			# Unstage the changes - the file will be permanantly removed
+		
+		
+	GIT COMMIT :
+	
+		- git commit -m "<Valid Commit Message>"
+
+			# Commit Message should be relevant to the Changes.
+			
+			# Commit Message  - Rel_# / CR# 
+			
+			# Eg.: 
+			
+				Rel0825-Updated Payment Module
+				
+				
+			git commit --amend -m "Valid_Message"		# Change the Commit message for the last commit.
+
+  501  git --version
+  502  pwd
+  503  cd d:
+  504  cd d:
+  505  cd d:
+  506  mkdir PLDevOps
+  507  cd PLDevOps/
+  508  clear
+  509  pwd
+  510  mkdir Repo1
+  511  cd Repo1/
+  512  clear
+  513  pwd
+  514  cd ..
+  515  mkdir Repo2
+  516  ll
+  517  clear
+  518  pwd
+  519  ls
+  520  cd Repo1/
+  521  clear
+  522  ls
+  523  git init
+  524  ls
+  525  ls -a
+  526  cd .git
+  527  ls
+  528  cd ..
+  529  clear
+  530  git status
+  531  ls
+  532  echo "rec1" >> file1.txt
+  533  ls
+  534  cat file1.txt
+  535  git status
+  536  git add file1.txt
+  537  git status
+  538  git commit -m "Created file1.txt"
+  539  git status
+  540  ls
+  541  git log
+  542  ls
+  543  echo "rec1" >> file2.txt
+  544  git status
+  545  git add file2.txt
+  546  git status
+  547  git commit -m "Created file2.txt"
+  548  git log
+  549  echo "rec1" >> s1.txt
+  550  git add s1.txt
+  551  git commit -m "created s1.txt"
+  552  git log
+  553  ls -a
+  554  git log --oneline
+  555  git log
+  556  git config --global user.name "Loksai"
+  557  echo "rec1" >> s2.txt
+  558  git add s2.txt
+  559  git commit -m "Created s2.txt"
+  560  clear
+  561  ls
+  562  git log
+  563  echo "rec1" >> s3.txt
+  564  git commit -m "Created s3.txt"
+  565  clear
+  566  git add .
+  567  git commit -m "Created s3.txt"
+  568  clear
+  569  cd ..
+  570  ls
+  571  clear
+  572  ls
+  573  cd Repo2
+  574  git init
+  575  ls
+  576  ls -a
+  577  clear
+  578  ls
+  579  echo "rec1" >> a1.txt
+  580  ls
+  581  cat a1.txt
+  582  git status
+  583  git ls-files
+  584  git add a1.txt
+  585  git status
+  586  git ls-files
+  587  git commit -m "Created a1.txt"
+  588  git status
+  589  git ls-files
+  590  clear
+  591  git log --oneline
+  592  ls
+  593  git status
+  594  echo "rec1" >> a2.txt
+  595  echo "rec1" >> a3.txt
+  596  echo "rec1" >> a4.txt
+  597  echo "rec1" >> index.html
+  598  echo "rec1" >> signin.html
+  599  echo "rec1" >> tem.java
+  600  echo "rec1" >> q1.java
+  601  echo "rec1" >> q2.java
+  602  echo "rec1" >> q3.java
+  603  echo "rec1" >> w1.doc
+  604  echo "rec1" >> w2.doc
+  605  echo "rec1" >> w3.doc
+  606  echo "rec1" >> w4.doc
+  607  ls
+  608  cat index.html
+  609  clear
+  610  ls
+  611  git status
+  612  git add a2.txt
+  613  git status
+  614  git add q1.java w1.doc
+  615  git status
+  616  git add *.java *.txt
+  617  git status
+  618  git add .
+  619  git status
+  620  git commit -m "Created some files"
+  621  git status
+  622  git ls-files
+  623  clear
+  624  git log
+  625  echo "Rec1" >> m1.txt
+  626  git add .
+  627  git commit -m "created m1.txt"
+  628  echo "Rec1" >> m2.txt
+  629  git add .
+  630  git commit -m "created m2.txt"
+  631  echo "Rec1" >> m3.txt
+  632  git add .
+  633  git commit -m "created m3.txt"
+  634  echo "Rec1" >> m4.txt
+  635  git add .
+  636  git commit -m "created m4.txt"
+  637  echo "Rec1" >> m4.txt
+  638  git add .
+  639  git commit -m "created m4.txt"
+  640  clear
+  641  git log
+  642  clear
+  643  git log
+  644  clear
+  645  git log
+  646  git commit --oneline
+  647  clear
+  648  git log
+  649  git commit --oneline
+  650  clear
+  651  git log
+  652  git show 9d552e4f
+  653  git show 9552ee417
+  654  git log --oneline
+  655  git show 9552ee4
+  656  ls
+  657  git show c0594ad
+  658  cat m4.txt
+  659  echo "record1" > m4.txt
+  660  cat m4.txt
+  661  git add .
+  662  git commit -m "Updated m4.txt"
+  663  git log --oneline
+  664  git show b0ff417
+  665  clear
+  666  git log --oneline
+  667  git log -3
+  668  git log -1
+  669  git log --oneline -1
+  670  git log --oneline -3
+  671  git log --stat -1
+  672  git show b0ff417b
+  673  clear
+  674  ls
+  675  git status
+  676  cat w4.doc
+  677  git log --oneline  -1
+  678  git show b0ff417
+  679  echo "record2" >> m4.txt
+  680  git status
+  681  git diff
+  682  echo "rec2" >> m3.txt
+  683  git diff
+  684  clear
+  685  cd ..
+  686  mkdir Repo3
+  687  cd Repo3/
+  688  git init
+  689  clear
+  690  git status
+  691  echo "rec1" >> s1.txt
+  692  git add .
+  693  git commit -m "Created s1.txt"
+  694  clear
+  695  ehco "rec1 "" q1.txt
+  696  ls
+  697  echo "rec1" >> q1.txt
+  698  echo "rec1" >> q2.txt
+  699  git status
+  700  git add .
+  701  git status
+  702  ls
+  703  git ls-files
+  704  git rm --cached q1.txt
+  705  ls
+  706  git ls-files
+  707  git status
+  708  git commit -m "created q2.txt"
+  709  git status
+  710  git add .
+  711  git status
+  712  ls
+  713  git ls-files
+  714  git rm -f q1.txt
+  715  git ls-files
+  716  ls
+  717  git status
+  718  git log --oneline
+  719  echo "rec1" >> w1.txt
+  720  git add .
+  721  git commit -m "Sep25Rel-1001 - Created w1.txt"
+  722  git log --oneline
+  723  git status
+  724  echo "rec1" >> l1.txt
+  725  git add .
+  726  git commit -m "asdfasdfasdfasd"
+  727  clear
+  728  git log --oneline
+  729  git commit -m "Valid Message"
+  730  git commit --amend -m "Valid_Message"
+  731  git log --oneline
+  732  cd ..
+  733  history
+
+
+Next :
+
+	Revert / Reset 
+	Branching Techniques ....
+
+
