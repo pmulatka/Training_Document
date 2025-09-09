@@ -607,3 +607,275 @@ Next :
 	Branching Techniques ....
 
 
+	
+
+#########################
+Day 10 : 9th Sep. 2025
+#########################
+
+	GIT Ignore :::::
+
+				- Used to Ignore the files from tracking!
+				- Create .gitignore file and update the files with all the file names/folder names to be ignored 
+				- As a best practise, .gitignore should be the very first commit 
+				
+		Workspace Directory?
+
+
+	vi .gitignore 
+
+		*.war
+		*.jar
+		sample.txt
+		readme.doc
+		*.doc
+		target/
+		DBase_Secrets
+		DB_Password
+		sdir1/file1.txt 
+	
+	Local Machine
+	
+	Working Directory 		---> 		Staging/Index Area 			--->		Local Repository		=====>		Remote Repository
+	
+	
+	Java_Web_App_Project		
+	
+		src 
+			main 
+				*.java
+			test 
+				*.java 
+		resources 
+			html 
+				*.html 
+			css 
+				*.css 
+			JavaScripts
+				*.js
+		application.properties
+		DBase_Secrets
+		DB_Password
+		target
+			*.war 
+		Readme.md
+		
+	
+	GIT Reset / Revert ::::
+	
+	git reset :::
+	
+		git reset is used to undo the changes from the repository
+		git reset will reset the commit point to the previous commit point 
+		git reset will not create any new commit point for track purpose 
+		As a best practise, git reset is not recommended in the shared repository 
+	
+		Syntax :		
+			- git reset <reset_option> <previous_Commit_ID>
+			
+		Reset Options ::
+		
+			git reset --soft <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to staging area 
+				- The Changes will be available in staging area and working directory					
+		
+			git reset --mixed <previous_Commit_ID> :::									# Default
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to working directory 
+				- The Changes will be available only in working directory			
+			
+			git reset --hard  <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will permanently delete the files from the system 
+	
+			Repo1:
+					
+				cm5						HEAD - Latest Commit 
+				cm4 
+				cm3 
+				cm2
+				cm1
+
+			git reset --soft cm4
+			
+				cm4 					HEAD - Latest Commit
+				cm3 
+				cm2
+				cm1
+
+			git reset cm2
+			 
+				cm2						HEAD - Latest Commit
+				cm1		
+			
+			
+			
+			ETL Process :
+			
+				Extract/Transform/Load 			
+	
+	Git Revert ::::
+	
+	
+		- Git Revert is same as git reset --hard option 		
+		- git revert is used to undo a specific commit 		
+		- git revert will create a new commit point for tracking purpose.		
+		- git revert will maintain the commit history		
+		- git revert is recommended in shared repositories
+		
+		Syntax ::
+			git revert <specific_Commit_ID>	
+	
+	
+	GIT Branching ::::
+	
+		- Git Branch is a logical copy of a Repository/Specific Branch.
+		- It help perform parallel development
+		- It help the developers to independently work on their changes without impacting others
+		- Git Branching Strategy is used to maintain the integrity of default: master/main branch
+			
+		
+		
+	Repo1: 
+	
+		master : cm1,cm2,cm3 				# Default Branch -- Production version 
+		
+					cm1,cm2,cm3,f1cm1,f1cm2,f1cm3 			# Upon merging changes from feature_branch		
+		
+		
+			feature_branch : cm1,cm2,cm3 
+						   : cm1,cm2,cm3,f1cm1,f1cm2,f1cm3 
+	
+	
+
+	Scenario 1:
+	
+		Repo1: 
+		
+			master : cm1,cm2,cm3 				# Default Branch -- Production version 	
+			
+						: cm1,cm2,cm3,Developer_Branch_Changes 		# Upon merging changes from Developer_Branch		
+			
+			
+				Developer_Branch : cm1,cm2,cm3 
+									: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+				
+				
+					feature_branch1 : cm1,cm2,cm3
+									: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+									
+					feature_branch2 : cm1,cm2,cm3
+									: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+	
+	Scenario 2:
+	
+		Repo1: 
+		
+			master : cm1,cm2,cm3 				# Default Branch -- Production version 	
+			
+						: cm1,cm2,cm3,cm4 		# cm4 are the changes merged from Integration_Branch
+
+				Integration_Branch : cm1,cm2,cm3 
+										: cm1,cm2,cm3,Developer1_Changes,Developer2_Changes  # Upon merging changes from Developer1&2
+								
+			
+					Developer1_Branch : cm1,cm2,cm3 
+										: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+					
+					
+						feature_branch1 : cm1,cm2,cm3
+										: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+										
+						feature_branch2 : cm1,cm2,cm3
+										: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+		
+					Developer2_Branch : cm1,cm2,cm3 
+										: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+					
+					
+						feature_branch1 : cm1,cm2,cm3
+										: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+										
+						feature_branch2 : cm1,cm2,cm3
+										: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+	
+	
+	Scenario 3:
+	
+		Repo1: 
+		
+			master : cm1,cm2,cm3 				# Default Branch -- Production version 	
+			
+						: cm1,cm2,cm3,cm4 		# cm4 are the changes merged from Release_Branch
+						
+						
+				Release_Branch : cm1,cm2,cm3 
+									: cm1,cm2,cm3,Team1_Changes,Team2_Changes 	
+
+					Integration_Branch1 : cm1,cm2,cm3 																	# Team1
+					
+											: cm1,cm2,cm3,Developer1_Changes,Developer2_Changes  # Upon merging changes from Developer1&2
+									
+				
+						Developer1_Branch : cm1,cm2,cm3 
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+						
+						
+							feature_branch1 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+											
+							feature_branch2 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+			
+						Developer2_Branch : cm1,cm2,cm3 
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+						
+						
+							feature_branch1 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+											
+							feature_branch2 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+		
+					Integration_Branch2 : cm1,cm2,cm3 																	# Team1
+					
+											: cm1,cm2,cm3,Developer1_Changes,Developer2_Changes  # Upon merging changes from Developer1&2
+									
+				
+						Developer1_Branch : cm1,cm2,cm3 
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+						
+						
+							feature_branch1 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+											
+							feature_branch2 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+			
+						Developer2_Branch : cm1,cm2,cm3 
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# Upon merging changes from feature_branch1&2	
+						
+						
+							feature_branch1 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+											
+							feature_branch2 : cm1,cm2,cm3
+											: cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+
+Next :
+
+	- Work with Branches!
+	
+		- Create branches with the cli commands 
+	
+	
+		- GIT Rebase 
+		- GIT Squash Option 
+		
+		
+	GIT Stash 
+	
+	Git Remote Repos! - GITHUB 
+	
+	Working with GIT/GITHUB using Visual Studio Code IDE.
