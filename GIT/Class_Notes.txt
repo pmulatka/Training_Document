@@ -1256,3 +1256,321 @@ Next ::
 	
 	Remote Repositories 
 	
+	
+#########################
+Day 12 : 12th Sep. 2025
+#########################
+
+	GIT Stash :::
+	
+		- Is used to save the uncommited changes to a temporary area!
+	
+		-> Repo1:
+		
+			master : cm1,cm2 
+			
+				feature1 : cm1,cm2......
+				
+				feature2 : 
+				
+				bug-fix :
+			
+
+				git stash list							# Get the List of Stashed entires!  FILO
+				
+				git stash save "for l1.txt"				# Create stash entry in the stash list 	
+				
+				git stash apply 						# To Apply the latest entry from the stash list back the staging area	
+				
+				git stash apply stash@{3}				# To Apply a specific entry from the stash list back the staging area	
+				
+				git stash drop							# To delete/drop the latest entry from the stash list. 
+				
+				git stash drop stash@{3}				#  delete/drop a specific entry from the stash list. 	
+				
+				git stash pop							
+								# To Apply the latest entry from the stash list back the staging area as well as delete/drop that latest entry
+								
+				git stash pop stash@{3}
+								# To Apply a specific from the stash list back the staging area as well as delete/drop that entry
+										
+				git stash clear 						# Clean-up the Stash list!
+	
+	
+	Remote Repositories ::::
+	
+		
+	Developers' Work load :::
+	
+	-	Enhancement Project / Bugfixing 
+	
+	-	Create New Service 
+	
+	
+	Local Machine 																					Remote Server 
+	
+	Install git client 
+	
+	
+	Working Directory 				Staging/Index Area						Local Repository		 	Remote Repository
+	
+	index.html 		 --------------> index.html			----------------->   index.html_v1.0 -----------> index.html_v1.0
+						git add 						   git commit 						  git push
+
+	
+	- Git Clone  			# To Clone/Copy the entire Remote Repository to Local Machine
+	
+	- Git add  				# To add the changes from Working Directory to Staging/Index Area 
+	
+	- Git Commit			# To Commit the changes from Staging/Index Area to Local Repository
+	
+	- Git Push				# To Push the Changes from Local Repository to Remote Repository 
+	
+	- Git Pull/git Fetch :::	
+		
+		# Both git pull & git fetch are used to handle the incremental changes from Remote Repositories
+		
+		# Git Fetch :
+		
+			It will just check for the incremental changes in Remote Repository, if the incremental changes exist, it will update the incremental changes only in the Local Repository. It will NEVER update the Working Directory.
+			Perform explicit Merge/pull to update the Working Directory.
+			
+		# Git Pull :
+		
+			It will check for the incremental changes in Remote Repository, if the incremental changes exist, it will update the incremental changes in the Local Repository as well in the Working Directory.
+			
+			git pull = git fetch + git merge 
+			
+			As a best practise, Git Pull is always recommended to keep the Local Repository to be in-sync with Repository
+				
+	
+	
+	- Remote Repositories using GitHub ::::
+	
+	other products :
+	
+		- Azure Repos 
+		- gitlab 
+		- bitbucket 
+		- aws codecommit ...
+		
+		
+	- Work with Remote Repos 
+		- create a remote repo 
+		- create commits 
+		- create remote branches 
+		- merge the changes using Pull Request.
+	
+	
+	- Manage the changes from local repo to remote repos 
+	
+	
+	
+		git clone <clone_url>
+		
+		git clone https://github.com/PL-DevOps-GenAI-0825/testrepo1.git
+		
+		
+		git remote -v 			# List the remote repositories that are linked to a local repository
+		
+		
+		
+		git push -u origin local-feature1
+		
+		
+		Create an access token in remote github repository 
+		
+			- Create PAT in Github.
+			
+			
+			
+		ETL : ==> script etl.sh 
+		
+
+
+	-	Create New Product/Service  :::	
+	
+		- Create all the changes from the scratch in local repo and push to remote repo 
+		
+		- Create an empty remote repo.
+		
+		- 
+		
+		List the Remote Repos link to Local Repo:
+		
+			git remote -v 
+		
+		Link any remote repo to local repo:
+		
+			git remote add origin https://github.com/PL-DevOps-GenAI-0825/testrepo2.git
+			
+		Remove remote repo from local repo:
+		
+			git remote remove origin
+			
+			
+  861  cd ..
+  862  mkdir demorepo1
+  863  cd demorepo1/
+  864  lc
+  865  clear
+  866  git init
+  867  echo "rec1" >> f1.txt
+  868  git add .
+  869  git commit -m "cm1"
+  870  git switch -c feature1
+  871  echo "rec1" >> s1.txt
+  872  clear
+  873  ls
+  874  git status
+  875  git add .
+  876  echo "rec2" >> s1.txt
+  877  git add .
+  878  echo "rec3" >> s1.txt
+  879  git add .
+  880  git status
+  881  cat s1.txt
+  882  git switch master
+  883  git status
+  884  git switch feature1
+  885  git status
+  886  cat s1.txt
+  887  clear
+  888  git stash list
+  889  git status
+  890  git stash save "for s1.txt"
+  891  git status
+  892  ls
+  893  git stash list
+  894  echo "rec1" >> s2.txt
+  895  git add .
+  896  git stash save "for s2.txt"
+  897  git stash list
+  898  echo "rec1" >> s3.txt
+  899  git add .
+  900  git stash save "for s3.txt"
+  901  echo "rec1" >> s4.txt
+  902  git add .
+  903  git stash save "for s4.txt"
+  904  echo "rec1" >> s5.txt
+  905  git add .
+  906  git stash save "for s5.txt"
+  907  echo "rec1" >> s6.txt
+  908  git add .
+  909  git stash save "for s6.txt"
+  910  echo "rec1" >> s7.txt
+  911  git add .
+  912  git stash save "for s7.txt"
+  913  git stash list
+  914  ls
+  915  git stash apply
+  916  git stash list
+  917  git commit -m "s7"
+  918  git stash list
+  919  ls
+  920  git ls-files
+  921  git stash drop
+  922  git stash list
+  923  git stash pop
+  924  ls
+  925  git stash list
+  926  git stash apply stash@{2}
+  927  git stash list
+  928  git drop stash@{2}
+  929  git stash drop stash@{2}
+  930  git stash list
+  931  git pop stash@{2}
+  932  git stash pop stash@{2}
+  933  clear
+  934  git commit -m "asdf"
+  935  clear
+  936  git stash list
+  937  git stash clear
+  938  git stash list
+  939  ls
+  940  echo "rec1" >> q1.txt
+  941  git add .
+  942  git stash save "q1"
+  943  git stash list
+  944  ls
+  945  git status
+  946  echo "rec1" >> q2.txt
+  947  git add .
+  948  git stash save "q2"
+  949  clear
+  950  git stash list
+  951  git stash pop
+  952  ls
+  953  echo "rec1" >> l1.txt
+  954  git add .
+  955  ls
+  956  git status
+  957  clear
+  958  cd ..
+  959  mkdir remoterepos
+  960  clear
+  961  ls
+  962  cd remoterepos/
+  963  clear
+  964  git clone https://github.com/PL-DevOps-GenAI-0825/testrepo1.git
+  965  ls
+  966  cd testrepo1/
+  967  ls
+  968  git status
+  969  git remote -v
+  970  git log --oneline
+  971  ls
+  972  git switch -c local-feature1
+  973  git log --oneline
+  974  ls
+  975  echo "rec1" >> local-file1.txt
+  976  git add .
+  977  git commit -m "local-file1"
+  978  git log --oneline
+  979  git push -u origin local-feature1
+  980  git switch main
+  981  ls
+  982  git status
+  983  ls
+  984  git log --oneline
+  985  git fetch
+  986  ls
+  987  git status
+  988  git pull
+  989  ls
+  990  git status
+  991  git log --oneline
+  992  git branch
+  993  clear
+  994  git status
+  995  ls
+  996  git pull
+  997  ls
+  998  cd ..
+  999  mkdir testrepo2
+ 1000  cd testrepo2/
+ 1001  git init
+ 1002  echo "rec1" >> f1.txt
+ 1003  git add .
+ 1004  git commit -m "f1"
+ 1005  clear
+ 1006  git log
+ 1007  ls
+ 1008  git remote -v
+ 1009  git remote add origin https://github.com/PL-DevOps-GenAI-0825/testrepo2.git
+ 1010  git remote -v
+ 1011  git branch -M main
+ 1012  git branch -M master
+ 1013  git push -u origin master
+ 1014  git remote -v
+ 1015  git remote remote origin
+ 1016  git remote remove origin
+ 1017  git remote -v
+ 1018  history
+			
+Next :::
+
+	- Maven - Build Tool 
+	- Manage the Maven Project with Visual Studio Code IDE
+		
+	- Jenkins!
