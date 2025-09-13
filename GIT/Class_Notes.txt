@@ -1280,8 +1280,10 @@ Day 12 : 12th Sep. 2025
 			
 
 				git stash list							# Get the List of Stashed entires!  FILO
+
+				git add 11.txt                         # add the file stage area first then apply stash save
 				
-				git stash save "for l1.txt"				# Create stash entry in the stash list 	
+				git stash save "for l1.txt"				# Create stash entry in the stash list 	and file should be in stage area
 				
 				git stash apply 						# To Apply the latest entry from the stash list back the staging area	
 				
