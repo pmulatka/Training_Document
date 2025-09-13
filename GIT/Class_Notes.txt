@@ -998,7 +998,8 @@ Day 11 : 11th Sep. 2025
 								
 								git merge feature2							
 	
-	
+	Question : Example with git rebase and merge conflict?
+
 	
 	- GIT Squash Option :
 	
@@ -1020,13 +1021,15 @@ Day 11 : 11th Sep. 2025
 							
 							git switch master 
 							
-							git merge feature1 							
+							git merge feature1 	# run this command if you dont want to make combined branch history, else run below command					
+
+
+							git merge --squash feature1   # this will not update head pointer you need to explicitly run git commit command
+							+
+							git commit -m "cm4 - Combined Changes from feature1" 
 							
-							git merge --squash feature1
-							
-							git commit -m "cm4 - Combined Changes from feature1"
-							
-							
+	Question : What is difference between  git merge feature1 and git merge --squash feature1?
+
 	
 	- git cherry-pick :
 		
