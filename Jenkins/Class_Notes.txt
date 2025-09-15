@@ -1,0 +1,84 @@
+
+#########################
+Day 13 : 15th Sep. 2025
+#########################
+
+
+	Build Orchestration using Jenkins ::::
+	
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	
+	Other Build Orchestration Tools :
+	
+		Bamboo
+		AzPipelines 
+		Gitlab-ci
+		AWS CodePipelines 
+		
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+		
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												- Install git, jdk, jenkins
+										
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+				(Build Environment)				- Install git, jdk, maven
+
+	- Environments :::
+	
+		Non-Prod Environments						 ==>					Production Environments	
+	
+			- Dev Environments (VM)
+			- Build Environments (VM)
+			- Testing Environments
+				- QA 
+				- UAT 							===============>			Production Servers
+												
+												
+												
+	Scenario1 :
+	
+		Client :
+		
+			Java Web Application Development
+			
+			Change Request : 1 or 2 CR per week / 
+			
+			- Less no. of Application Builds and Production release 
+			
+
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_Master
+											==> Install Git, JDK, Jenkins
+											==> Install Application Build Tools(Maven)
+											
+											
+	Scenario2 :
+	
+		Client :
+		
+			Java, .Net, python, Node-js, Angular, ruby, ......
+			
+			Frequency of Builds and Release are huge
+			
+			
+			Jenkins_Master Np(VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												==> Install Git, JDK, Jenkins											
+											
+				Jenkins_SlaveNode1 (VM1)		==> Java Build Tools										
+				Jenkins_SlaveNode1 (VM1.1)		==> Java Build Tools										
+				Jenkins_SlaveNode1 (VM2)		==> Python
+				Jenkins_SlaveNode1 (VM3)		==> .Net
+				Jenkins_SlaveNode1 (VM4)		==> Angular/Nodejs
+				Jenkins_SlaveNode1 (VM5)		==> Ruby
+				
+Next :::
+
+	Working with Jenkins ::::
