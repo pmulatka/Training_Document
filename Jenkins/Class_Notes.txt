@@ -82,3 +82,104 @@ Day 13 : 15th Sep. 2025
 Next :::
 
 	Working with Jenkins ::::
+
+
+	
+	
+#########################
+Day 14 : 16th Sep. 2025
+#########################
+
+	Working with Jenkins ::::	
+	
+	CI/CD Workflow :::
+	
+	CICD Pipeline composed of various stages :
+
+		- SCM_Checkout					# Clone the source-code repo to build environment 
+		
+		- Application Build 
+		
+			- Compile
+			- Unit Testing 
+			- Create Artifacts
+	
+		- Promote the Artifacts to Target Environment(Testing Environment)
+		
+		- Email Notifications 
+		
+	
+	Working with Jenkins :::
+	
+	Developers' Perspectives :::
+		
+		- Developers are just the consumers of Jenkins 
+		- Developers can just execute/cancel/view the Jenkins jobs/Status.	
+	
+	
+	DevOps Perspectives :::
+		
+		- Roles and Responsibilities of DevOps Team 
+	
+		
+		Jenkins Administration 
+		
+			- Installation of Jenkins
+			- Global System Configurations 
+			- Plugins Management 
+			- Tools Management 
+			- User Management 					# To enable User Authentication
+			- Security Management				# To enable User Authorization
+			- Credential Management 
+			- Master/Slave Node Configurations
+			- Creation CICD Pipeline Projects 
+			- Onboard Applications to use Jenkins CICD Projects  
+			- Periodic Upgrade of Jenkins and its plugins 
+			- Periodic Backup 
+			- Troubleshooting the Issues!
+
+		
+	- Installation of Jenkins :::::
+	
+	
+		--> Jenkins can be installed in Linux - Ubuntu Machine AMI - v22.04
+		
+				https://www.jenkins.io/doc/book/installing/
+				
+				https://www.jenkins.io/doc/book/installing/linux/
+				
+			Jenkins run as a service, it runs in default port 8080	
+	
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites				# Install Jdk 
+				Install Actual Tool					# Install Jenkins 
+				Post Installation Actions			# Setup Jenkins Server	
+	
+	
+	
+	- Global System Configurations :::
+		
+		==> Is used to Configure the default properties/External Services/Servers in Jenkins.
+		==> goto manage jenkins -> Choose System Config		
+
+	- Plugins Management :
+		==> Manage Plugins - Enable/Disable/Install/Uninstall/Update 
+		==> goto manage jenkins -> Choose Plugins	
+	
+	- Tools Management :	
+		==> Manage the Dev/Build Tools for Jenkins 		
+	
+Next ::
+	
+	- User Management 					# To enable User Authentication
+	
+	- Security Management				# To enable User Authorization	
+
+	- Master/Slave Node Configurations
+	- Creation CICD Pipeline Projects 
+	- Onboard Applications to use Jenkins CICD Projects  
+	- Periodic Upgrade of Jenkins and its plugins 
+	- Periodic Backup 
+	- Troubleshooting the Issues!
