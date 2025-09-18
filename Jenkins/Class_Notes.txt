@@ -1,0 +1,303 @@
+
+#########################
+Day 13 : 15th Sep. 2025
+#########################
+
+
+	Build Orchestration using Jenkins ::::
+	
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	
+	Other Build Orchestration Tools :
+	
+		Bamboo
+		AzPipelines 
+		Gitlab-ci
+		AWS CodePipelines 
+		
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+		
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												- Install git, jdk, jenkins
+										
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+				(Build Environment)				- Install git, jdk, maven
+
+	- Environments :::
+	
+		Non-Prod Environments						 ==>					Production Environments	
+	
+			- Dev Environments (VM)
+			- Build Environments (VM)
+			- Testing Environments
+				- QA 
+				- UAT 							===============>			Production Servers
+												
+												
+												
+	Scenario1 :
+	
+		Client :
+		
+			Java Web Application Development
+			
+			Change Request : 1 or 2 CR per week / 
+			
+			- Less no. of Application Builds and Production release 
+			
+
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_Master
+											==> Install Git, JDK, Jenkins
+											==> Install Application Build Tools(Maven)
+											
+											
+	Scenario2 :
+	
+		Client :
+		
+			Java, .Net, python, Node-js, Angular, ruby, ......
+			
+			Frequency of Builds and Release are huge
+			
+			
+			Jenkins_Master Np(VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												==> Install Git, JDK, Jenkins											
+											
+				Jenkins_SlaveNode1 (VM1)		==> Java Build Tools										
+				Jenkins_SlaveNode1 (VM1.1)		==> Java Build Tools										
+				Jenkins_SlaveNode1 (VM2)		==> Python
+				Jenkins_SlaveNode1 (VM3)		==> .Net
+				Jenkins_SlaveNode1 (VM4)		==> Angular/Nodejs
+				Jenkins_SlaveNode1 (VM5)		==> Ruby
+				
+Next :::
+
+	Working with Jenkins ::::
+
+
+	
+	
+#########################
+Day 14 : 16th Sep. 2025
+#########################
+
+	Working with Jenkins ::::	
+	
+	CI/CD Workflow :::
+	
+	CICD Pipeline composed of various stages :
+
+		- SCM_Checkout					# Clone the source-code repo to build environment 
+		
+		- Application Build 
+		
+			- Compile
+			- Unit Testing 
+			- Create Artifacts
+	
+		- Promote the Artifacts to Target Environment(Testing Environment)
+		
+		- Email Notifications 
+		
+	
+	Working with Jenkins :::
+	
+	Developers' Perspectives :::
+		
+		- Developers are just the consumers of Jenkins 
+		- Developers can just execute/cancel/view the Jenkins jobs/Status.	
+	
+	
+	DevOps Perspectives :::
+		
+		- Roles and Responsibilities of DevOps Team 
+	
+		
+		Jenkins Administration 
+		
+			- Installation of Jenkins
+			- Global System Configurations 
+			- Plugins Management 
+			- Tools Management 
+			- User Management 					# To enable User Authentication
+			- Security Management				# To enable User Authorization
+			- Credential Management 
+			- Master/Slave Node Configurations
+			- Creation CICD Pipeline Projects 
+			- Onboard Applications to use Jenkins CICD Projects  
+			- Periodic Upgrade of Jenkins and its plugins 
+			- Periodic Backup 
+			- Troubleshooting the Issues!
+
+		
+	- Installation of Jenkins :::::
+	
+	
+		--> Jenkins can be installed in Linux - Ubuntu Machine AMI - v22.04
+		
+				https://www.jenkins.io/doc/book/installing/
+				
+				https://www.jenkins.io/doc/book/installing/linux/
+				
+			Jenkins run as a service, it runs in default port 8080	
+	
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites				# Install Jdk 
+				Install Actual Tool					# Install Jenkins 
+				Post Installation Actions			# Setup Jenkins Server	
+	
+	
+	
+	- Global System Configurations :::
+		
+		==> Is used to Configure the default properties/External Services/Servers in Jenkins.
+		==> goto manage jenkins -> Choose System Config		
+
+	- Plugins Management :
+		==> Manage Plugins - Enable/Disable/Install/Uninstall/Update 
+		==> goto manage jenkins -> Choose Plugins	
+	
+	- Tools Management :	
+		==> Manage the Dev/Build Tools for Jenkins 		
+	
+Next ::
+	
+	- User Management 					# To enable User Authentication
+	
+	- Security Management				# To enable User Authorization	
+
+	- Master/Slave Node Configurations
+	- Creation CICD Pipeline Projects 
+	- Onboard Applications to use Jenkins CICD Projects  
+	- Periodic Upgrade of Jenkins and its plugins 
+	- Periodic Backup 
+	- Troubleshooting the Issues!
+
+
+	
+#########################
+Day 15 : 18th Sep. 2025
+#########################	
+	
+	
+	- User Management 					# To enable User Authentication
+	
+	- Security Management				# To enable User Authorization		
+	
+	- Create Jenkins Jobs/Project/ and Execute in Jenkins Master Node.
+	
+		- Free-Style Projects ::: 		# Manual Configuration of any Jobs using GUI 
+		
+		
+			Working with Variables in Jenkins Projects :::
+			
+			
+				- Jenkins Environment Variables :::
+				
+				
+					Syntax: 
+					
+						"${var_name}"
+						"jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+				
+				
+				- User Defined Variables :::
+				
+							- "${Envi}"
+		
+			
+		- Pipeline Projects 	:::		# Is used to Create Automated Projects like build and deploymet projects
+										# The Pipelines are created using Groovy Scripts 
+										# To Reuse the Functions and Project Tasks.
+										
+					Types of Pipelines :
+					
+						- Scripted Pipelines ::
+							
+						
+						- Declarative Pipelines ::
+						
+							- Snippet Generator! 
+
+							
+			-> Stages 
+					Stage1 
+						Step :	
+							Task1
+							Task2 
+					Stage2 
+						Step :	
+							Task1
+							Task2 							
+					Stage3 
+						Step :	
+							Task1
+							Task2 										
+										
+								
+	
+	
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to QA'
+            }
+        }
+        stage('Deploy to UAT Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to UAT'
+            }
+        }
+        stage('Deploy to PROD Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to PROD'
+            }
+        }
+    }
+}	
+	
+	
+
+	
+
+
+Next :::
+
+	- Master/Slave Node Configurations
+	
+	- Creation CICD Pipeline Projects 
+	
+	- Onboard Applications to use Jenkins CICD Projects  
+	
+	- Working with Tomcat Server!
+	
+		Jenkins_Master 
+	
+			Jenkins_SlaveNode
+		
+		QA-Tomcat_Server
