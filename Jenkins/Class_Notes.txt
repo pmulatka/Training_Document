@@ -183,3 +183,121 @@ Next ::
 	- Periodic Upgrade of Jenkins and its plugins 
 	- Periodic Backup 
 	- Troubleshooting the Issues!
+
+
+	
+#########################
+Day 15 : 18th Sep. 2025
+#########################	
+	
+	
+	- User Management 					# To enable User Authentication
+	
+	- Security Management				# To enable User Authorization		
+	
+	- Create Jenkins Jobs/Project/ and Execute in Jenkins Master Node.
+	
+		- Free-Style Projects ::: 		# Manual Configuration of any Jobs using GUI 
+		
+		
+			Working with Variables in Jenkins Projects :::
+			
+			
+				- Jenkins Environment Variables :::
+				
+				
+					Syntax: 
+					
+						"${var_name}"
+						"jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+				
+				
+				- User Defined Variables :::
+				
+							- "${Envi}"
+		
+			
+		- Pipeline Projects 	:::		# Is used to Create Automated Projects like build and deploymet projects
+										# The Pipelines are created using Groovy Scripts 
+										# To Reuse the Functions and Project Tasks.
+										
+					Types of Pipelines :
+					
+						- Scripted Pipelines ::
+							
+						
+						- Declarative Pipelines ::
+						
+							- Snippet Generator! 
+
+							
+			-> Stages 
+					Stage1 
+						Step :	
+							Task1
+							Task2 
+					Stage2 
+						Step :	
+							Task1
+							Task2 							
+					Stage3 
+						Step :	
+							Task1
+							Task2 										
+										
+								
+	
+	
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to QA'
+            }
+        }
+        stage('Deploy to UAT Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to UAT'
+            }
+        }
+        stage('Deploy to PROD Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to PROD'
+            }
+        }
+    }
+}	
+	
+	
+
+	
+
+
+Next :::
+
+	- Master/Slave Node Configurations
+	
+	- Creation CICD Pipeline Projects 
+	
+	- Onboard Applications to use Jenkins CICD Projects  
+	
+	- Working with Tomcat Server!
+	
+		Jenkins_Master 
+	
+			Jenkins_SlaveNode
+		
+		QA-Tomcat_Server
