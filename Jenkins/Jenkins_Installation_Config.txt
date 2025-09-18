@@ -6,7 +6,7 @@ Install & Configure Jenkins Server :
 Launch AWS EC2 Instance - AMI - Ubuntu 22.04v 
 t2.micro - Instance Type 
 				
-#Allow All Traffic for Demo!
+#Allow All Traffic for Demo!- change inbound rule 
 
 Updated Inbound Rule - Port 8080 
 
