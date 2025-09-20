@@ -301,3 +301,135 @@ Next :::
 			Jenkins_SlaveNode
 		
 		QA-Tomcat_Server
+
+
+	
+	
+#########################
+Day 16 : 19th Sep. 2025
+#########################	
+		
+	
+	Non-Prod (100+) 						& Prod Servers(24/7) - Prod Jenkins 
+	
+		dev
+		qa 
+		uat 
+	
+	
+	8am : start all non-prod servers
+	
+	10pm : stop all non-prod servers
+	
+	aws cli 
+	
+	
+	script1 - aws cli to start   --> 7:45AM jenkins freestyle project
+	
+	script2 - aws cli to stop 	 --> 10PM
+	
+	periodic backup
+	
+	upgrade 
+	
+	
+	- Master/Slave Node Configurations	 ::::
+	
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												- Install git, jdk, jenkins
+										
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+				(Build Environment)				- Install git, jdk, maven
+
+
+		Host_Name 
+		User_Name 
+		Credentials 
+		
+		
+		
+		- goto Jenkins Credentials Manager and Add the SlaveNode's Credentials
+		
+		Goto to Manage Jenkins 
+			Select Nodes 
+				On Nodes Dashboard, Click on New Node
+					Give Node Name, and choose permanent agent.
+					
+pipeline {
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to QA Test Environment') {
+            steps {
+                echo 'Perform Application Deployment to QA'
+            }
+        }
+    }
+}	
+	
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												- Install git, jdk, jenkins
+										
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+				(Build Environment)				- Install git, jdk, maven
+													*.war 
+				
+			
+			QA_Server (VM)					==> To Execute the Application Artifacts and perform QA Level Testing 
+			
+											==> Web Application Servers - httpd,tomcat,nginx
+											
+											==> Use Tomcat Web Application Server for Java Web Applications
+											
+											==> Install jdk,Tomcat 
+											
+											==> Tomcat default port: 8080
+											
+											
+											
+		Environments :::
+		
+			Build Environment (VM) ==> *.war
+			
+			
+			Target Environment/Hosted Servers :	Hardware 
+			
+					Web Application Server/Service(httpd,tomcat,nginx) ==> Software 
+			
+				QA/UAT/PROD Environments 
+	
+	
+	
+Next :	
+
+	Pre-requisites :::
+	
+		1. Install Publish Over SSH Plugins and Restart Jenkins Service.
+		
+		2. Gmail Account ==> Two-Way Authentication/MFA ?
+						     Using Mobile Number 
+		
+				Login to Gmail :::
+
+				Click Manage Account Settings
+
+				@Left side panel - select Security 
+
+				MFA --> mobile#
+
+				App Password = 16 bytes of App Password. vaufxwhdbtnlltzr vauf xwhd btnl ltzr		
+				
+				What ? window
+				Which Appln - email	
