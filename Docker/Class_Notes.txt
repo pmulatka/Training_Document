@@ -1,0 +1,63 @@
+
+#########################
+Day 18 : 23rd Sep. 2025
+#########################
+
+
+	--> Containerization using Docker ::::	
+	
+	Introduction :::
+	
+	
+	Containerization ::::
+	
+		-> It is process of packaging the application along with its dependencies!
+		
+		
+	Virtual Machine :::
+	
+		- VMs are called as Hardware Level Virtualization
+		- VMs are created using Hypervisor
+		- VMs are used to execute an Operating System 
+		- VMs will continue to run even if there is not active Application/Task
+		- VMs consume more Time and space to start any Application/Task	
+		
+
+	Container :::
+	
+		- Containers are called as OS Level Virtualization
+		- Containers are created using Container Engine(Docker)
+		- Containers are used to execute any Application/Task. Not Operating System 		
+		- Containers will immediately go to exit state, if there is No active Application/Task		
+		- Containers consume less Time and space to start any Application/Task	
+
+		- Using Containers, we can reduce the no. of VMs. But we cannot completely eliminate VMs.
+		
+		- Containers use the properties of underlying Operating System
+		
+			Kernel			==> Is the core of Linux Operating 
+
+				- Namespaces 				
+				- Control Groups 
+		
+
+Next :::
+
+				
+	Working with Containerization :::
+	
+		-> Infra-Structure Management Perspectives :
+		
+		
+		-> Developers' / Deployment Perspectives :
+	
+	Terminologies :::
+	
+		- Container Engine :::
+		
+				- To Create and Manage the Container
+					
+	
+	
+	Install and Using Docker :::
+	
