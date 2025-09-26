@@ -258,3 +258,143 @@ Next :::
 			- Interactive Mode 
 			
 			- Continue with Docker Cli Commands.....
+
+
+
+
+#########################
+Day 20 : 26th Sep. 2025
+#########################
+
+	Container Execution Modes ::
+
+	Three Modes of Creating/Running the Containers:
+	
+		- Foreground / Attached Mode 		# Default Mode 
+		
+				docker run <image_name> 
+				
+				Eg.: 
+				
+					docker run ubuntu sleep 20 
+		
+		- Background / Detached Mode 
+			
+				docker run -d <image_name> 
+				Eg.: 
+				
+					docker run -d ubuntu sleep 20 	
+					
+		- Interactive Mode 
+		
+				docker run -it <image_name> 
+				Eg.: 
+				
+					docker run -it ubuntu bash 	
+					
+					exit							# Exit/stop the Container 
+					
+				
+		- docker start <Container_ID> 			# Start the Container		
+		
+		- Login to Running Container :
+		
+			docker exec -it <Container_ID> bash 
+			
+			Eg.:
+			
+			docker exec -it 092dc9986518 bash
+		
+			exit 								# Log-off from the Container
+			
+		- docker stop <Container_ID> 			# Stop the Running Container 
+		
+		
+		- Remove Containers & Images from Local Machine!
+		
+			- docker rmi <image_name>			# To Remove Container Images 
+			
+			- docker rm <Container_ID>			# To Remove Containers 	
+			
+			
+		- Port Mapping/Binding :::
+		
+			- It is used to expose the Container Application to Internet.			
+			
+			docker run -it -p 8085:8080 tomcat:8.0 			
+		
+				-p <host_port>:<container_port>
+			
+				Access the Application running inside the container using port mapping :
+			
+				<external_ip_addr>:<host_port>
+				
+				43.204.233.96:8085 	
+			
+			
+		- Docker Container Volume ::::
+		
+			
+			Containers! used to run any task/application.
+			
+			By default, Containers are meant for Stateless Application 
+			
+			Stateful Application :
+			
+				- Leave some trace of execution in the form of logs/reports/output.
+				- By default Container are not used to execute stateful application.
+				
+				
+			- Docker Container Volumes are used to execute stateful applications and maintain the persistant data/volume.
+			- Persistant Data/volume exist even after the life time of Containers
+			
+			
+			3-Tier Application Architecture ????
+			
+				Sign_in Micro-Service
+				
+					- Front-End Layer	==> User Interaction ==> C1 
+					
+					- Application Layer	==> Business Logic	 ==> C2 
+					
+					- Back-End Layer	==> Database 		 ==> C3 
+					
+			- Container are basically used to execute application/task.			
+			- Containers are actually used to run the stateless application.
+			
+			- This is to maintain pesistant data!	
+			
+		Stateless application :
+		
+			- Application that never retain the state of execution 
+		
+		Stateful application :
+		
+			- To work with the stateful applications, Docker Volumes can be used.
+			
+		- Create Docker Volumes & Mount to Containers
+			
+			docker volume list 					# List the Docker Volumes 
+			
+			docker volume create pl-vol1		# Create a docker volume 
+			
+			docker volume inspect pl-vol1		# Inpect/Get the Properties of Volume
+			
+			docker run -it --mount source=pl-vol1,destination=/pl-vol1 ubuntu bash  
+			
+			
+	
+	- Create Container Images :::
+	
+		Container Images 
+			--	Is a Static file that defined the properties of the Container and its dependencies 
+			--  Container Images are Non-Executables
+			--  Container Images are composed of various Layers created using the Dockerfile Instructions		
+
+Next ::::
+			
+		Commands used to create Docker Container Images :::
+		
+		
+			- docker commit 
+			- docker build 
