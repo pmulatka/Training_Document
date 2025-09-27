@@ -1,0 +1,400 @@
+
+#########################
+Day 18 : 23rd Sep. 2025
+#########################
+
+
+	--> Containerization using Docker ::::	
+	
+	Introduction :::
+	
+	
+	Containerization ::::
+	
+		-> It is process of packaging the application along with its dependencies!
+		
+		
+	Virtual Machine :::
+	
+		- VMs are called as Hardware Level Virtualization
+		- VMs are created using Hypervisor
+		- VMs are used to execute an Operating System 
+		- VMs will continue to run even if there is not active Application/Task
+		- VMs consume more Time and space to start any Application/Task	
+		
+
+	Container :::
+	
+		- Containers are called as OS Level Virtualization
+		- Containers are created using Container Engine(Docker)
+		- Containers are used to execute any Application/Task. Not Operating System 		
+		- Containers will immediately go to exit state, if there is No active Application/Task		
+		- Containers consume less Time and space to start any Application/Task	
+
+		- Using Containers, we can reduce the no. of VMs. But we cannot completely eliminate VMs.
+		
+		- Containers use the properties of underlying Operating System
+		
+			Kernel			==> Is the core of Linux Operating 
+
+				- Namespaces 				
+				- Control Groups 
+		
+
+Next :::
+
+				
+	Working with Containerization :::
+	
+		-> Infra-Structure Management Perspectives :
+		
+		
+		-> Developers' / Deployment Perspectives :
+	
+	Terminologies :::
+	
+		- Container Engine :::
+		
+				- To Create and Manage the Container
+					
+	
+	
+	Install and Using Docker :::
+	
+
+
+#########################
+Day 19 : 25th Sep. 2025
+#########################
+
+	Kernel			==> Is the core of Linux Operating 
+	
+		Task --> Process. 
+		
+			- Process run in it's own address space 
+			- Process ID 
+			- Process Communication 
+			- Inter-Process Communication
+			- Process Volume
+
+		- Namespaces 				
+		- Control Groups 
+
+	Containerization ::::
+	
+		-> It is process of packaging the application along with its dependencies!
+				
+				
+	Working with Containerization :::
+		
+		-> Infra-Structure Management Perspectives :
+		
+			- It used to reduce the Infra-Structure Cost.
+			- Using Containers, we can reduce the no. of VMs.
+			
+			
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+											==> Install Git, JDK, Jenkins											
+											
+				Jenkins_SlaveNode1 (VM1)	==> Java Build Tools								
+				Jenkins_SlaveNode2 (VM2)	==> Python
+				Jenkins_SlaveNode3 (VM3)	==> .Net
+				Jenkins_SlaveNode4 (VM4)	==> Angular/Nodejs
+				Jenkins_SlaveNode5 (VM5)	==> Ruby
+				
+			Using Containerization ::
+		
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+											==> Install Git, JDK, Jenkins
+				Jenkins_SlaveNode1 (VM)
+					- Install Container Engine(Docker)
+							C1 				==> Java Build Tools		
+							C2              ==> Python
+							C3              ==> .Net
+							C4              ==> Angular/Nodejs
+							C5              ==> Ruby
+						
+		
+		-> Developers' / Deployment Perspectives :	
+		
+
+			Containerization ::::
+			
+				-> It is process of packaging the application along with its dependencies!
+			
+			Environments :
+			
+				Developer :	
+					- Create Source Code 
+					- Build and Create mywebapp.war
+					- jdk17 & tomcat8
+					
+					- Run mywebapp.war using tomcat and perform Unit Testing in Local Machine 
+
+					- Commit the Source_Code to GitHub Repos 
+					
+					- Create Application Image using (mywebapp.war,jdk17,tomcat8)	==> mywebapp_img:v1 (Package)
+					
+					- Application Image will be published to Container Registry(DockerHub)
+							==> mywebapp_img:v1
+							
+							
+				Version Control System :
+				
+				Dev/Build Process :
+				
+				Source_Code Repository(Github) 			Artifactory_Libraries(Jfrog)		Container Registry(DockerHub)
+				
+					mywebapp.java:v1						mywebapp.war:v1						mywebapp_img:v1
+					mywebapp.java:v2						mywebapp.war:v2						mywebapp_img:v2
+					mywebapp.java:v3						mywebapp.war:v3						mywebapp_img:v3
+					mywebapp.java:v4						mywebapp.war:v4						mywebapp_img:v4					
+					
+					
+				QA :		
+					- Pull mywebapp_img:v1 from Container Registry(DockerHub) and Create a Application Container
+					
+					- Run Application Container and perform QA Level Testing  
+				
+			
+				UAT :			
+					- Pull mywebapp_img:v1 from Container Registry(DockerHub) and Create a Application Container
+					
+					- Run Application Container and perform UAT Level Testing   	
+
+			
+				PROD :			
+					- Pull mywebapp_img:v1 from Container Registry(DockerHub) and Create a Application Container
+					
+					- Run Application Container and perform PROD Level Testing   	
+		
+		
+	Terminologies/Components of Docker Architecture :::
+	
+		Container Engine 
+			-- Is used to Create/Manage Container Images and Create/Manage and run Containers	
+		
+		Container Images 
+			--	Is a Static file that defined the properties of the Container and its dependencies 
+			--  Container Images are Non-Executables
+			--  Container Images are composed of various Layers created using the Dockerfile Instructions
+			
+		Containers 
+			--	Containers are the executable units of Container Images
+			-- 	Containers are used to run the applications defined in the Container Images 		
+		
+		Container Registry 
+			--	It is used to save and version control the Container Images 
+				Dockerhub is Container Registry to be used.
+				https://hub.docker.com/			
+		
+		Container Repositories
+			--	Container Repositories	are the subset of Container Registry
+			
+			github 			Docker-Hub_Registry
+				repo1			Docker-hub_Repository1
+				repo2			Docker-hub_Repository2
+				
+				
+				
+	- Create DockerHub Account ::::
+	
+		- Login to DockerHub Account 
+		- Explore the existing Docker Container Images 
+		
+	
+	
+	
+	- Install Docker Engine in Local Machine :::		# https://docs.docker.com/engine/install/
+	
+		- Launch Ubuntu Machine - v22.04 / Use existing Jenkins Slave Node to Install Docker Engine
+		
+		- sudo -i 
+		- apt update -y 			
+		- apt install docker.io -y
+		
+		
+	- Working Docker CLI Commands
+		
+		docker --version		
+		
+		docker images 			# To get the list of images in local machine 
+		
+		docker ps 				# To get the list of Active/Running Containers 
+		
+		docker ps -a			# To get the list of all containers
+		
+		
+
+		docker pull <Image_Name>	# To download the docker container image from dockerhub registry to local machine 
+		
+			Eg.:
+				docker pull centos:latest
+				docker pull ubuntu:v1.0	
+				docker pull nginx
+				
+		docker run <Image_Name>					# To Create and run a Container based on the image. 
+		
+		Container Execution Modes ::
+	
+			- Foreground / Attached Mode 		# Default Mode 
+			
+					docker run <image_name> 
+					
+					Eg.: 
+					
+						docker run ubuntu sleep 20 
+			
+			- Background / Detached Mode 
+				
+					docker run -d <image_name> 
+					Eg.: 
+					
+						docker run -d ubuntu sleep 20 	
+
+
+
+Next :::			
+			- Interactive Mode 
+			
+			- Continue with Docker Cli Commands.....
+
+
+
+
+#########################
+Day 20 : 26th Sep. 2025
+#########################
+
+	Container Execution Modes ::
+
+	Three Modes of Creating/Running the Containers:
+	
+		- Foreground / Attached Mode 		# Default Mode 
+		
+				docker run <image_name> 
+				
+				Eg.: 
+				
+					docker run ubuntu sleep 20 
+		
+		- Background / Detached Mode 
+			
+				docker run -d <image_name> 
+				Eg.: 
+				
+					docker run -d ubuntu sleep 20 	
+					
+		- Interactive Mode 
+		
+				docker run -it <image_name> 
+				Eg.: 
+				
+					docker run -it ubuntu bash 	
+					
+					exit							# Exit/stop the Container 
+					
+				
+		- docker start <Container_ID> 			# Start the Container		
+		
+		- Login to Running Container :
+		
+			docker exec -it <Container_ID> bash 
+			
+			Eg.:
+			
+			docker exec -it 092dc9986518 bash
+		
+			exit 								# Log-off from the Container
+			
+		- docker stop <Container_ID> 			# Stop the Running Container 
+		
+		
+		- Remove Containers & Images from Local Machine!
+		
+			- docker rmi <image_name>			# To Remove Container Images 
+			
+			- docker rm <Container_ID>			# To Remove Containers 	
+			
+			
+		- Port Mapping/Binding :::
+		
+			- It is used to expose the Container Application to Internet.			
+			
+			docker run -it -p 8085:8080 tomcat:8.0 			
+		
+				-p <host_port>:<container_port>
+			
+				Access the Application running inside the container using port mapping :
+			
+				<external_ip_addr>:<host_port>
+				
+				43.204.233.96:8085 	
+			
+			
+		- Docker Container Volume ::::
+		
+			
+			Containers! used to run any task/application.
+			
+			By default, Containers are meant for Stateless Application 
+			
+			Stateful Application :
+			
+				- Leave some trace of execution in the form of logs/reports/output.
+				- By default Container are not used to execute stateful application.
+				
+				
+			- Docker Container Volumes are used to execute stateful applications and maintain the persistant data/volume.
+			- Persistant Data/volume exist even after the life time of Containers
+			
+			
+			3-Tier Application Architecture ????
+			
+				Sign_in Micro-Service
+				
+					- Front-End Layer	==> User Interaction ==> C1 
+					
+					- Application Layer	==> Business Logic	 ==> C2 
+					
+					- Back-End Layer	==> Database 		 ==> C3 
+					
+			- Container are basically used to execute application/task.			
+			- Containers are actually used to run the stateless application.
+			
+			- This is to maintain pesistant data!	
+			
+		Stateless application :
+		
+			- Application that never retain the state of execution 
+		
+		Stateful application :
+		
+			- To work with the stateful applications, Docker Volumes can be used.
+			
+		- Create Docker Volumes & Mount to Containers
+			
+			docker volume list 					# List the Docker Volumes 
+			
+			docker volume create pl-vol1		# Create a docker volume 
+			
+			docker volume inspect pl-vol1		# Inpect/Get the Properties of Volume
+			
+			docker run -it --mount source=pl-vol1,destination=/pl-vol1 ubuntu bash  
+			
+			
+	
+	- Create Container Images :::
+	
+		Container Images 
+			--	Is a Static file that defined the properties of the Container and its dependencies 
+			--  Container Images are Non-Executables
+			--  Container Images are composed of various Layers created using the Dockerfile Instructions		
+
+Next ::::
+			
+		Commands used to create Docker Container Images :::
+		
+		
+			- docker commit 
+			- docker build 

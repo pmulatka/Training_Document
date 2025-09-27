@@ -592,3 +592,129 @@ Build Triggers ::::
 Next: 
 
 	Email Notifications :::
+
+
+#########################
+Day 18 : 23rd Sep. 2025
+#########################
+
+
+	Email Notifications ::::
+	
+	
+		1. Gmail Account ==> Two-Way Authentication/MFA ?
+						     Using Mobile Number 
+		
+			Login to Gmail :::
+
+			Click Manage Account Settings
+
+			@Left side panel - select Security 
+
+			MFA --> mobile#
+
+			App Password = 16 bytes of App Password. vaufxwhdbtnlltzr vauf xwhd btnl ltzr		
+			
+			What ? window
+			Which Appln - email	
+			
+			
+		2. Login to Jenkiks Console 
+		
+				Goto Manage Jenkins -> System Configuration
+
+				Goto Email Notification 
+						
+				SMTP Server :
+				
+					smtp.gmail.com
+				
+				Default user e-mail suffix :
+				
+					@gmail.com
+
+				SMTP Authentication :
+				
+					User Name : <Email_ID>
+					
+					Password : <App Password = 16 bytes of App Password>
+
+				Enable SSL 
+				
+				SMTP Port :: 465	
+					
+	
+	Email Notifications can be sent during :
+	
+		- Successful 
+		
+		- Failure 
+		
+		- Unstable 
+	
+	
+	
+pipeline {
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') 
+		{
+            steps 
+			{
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+             post 
+			 {
+                failure 
+				{
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ${BUILD_URL} ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'SCM-Checkout Failed ', to: 'l@gmail.com'
+                }
+             }
+        }
+        stage('Application Build') 
+		{
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+             post 
+			 {
+                failure 
+				{
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'l@gmail.com', body: "jenkins-${JOB_NAME}-${BUILD_NUMBER}", cc: 'l@gmail.com', from: '', replyTo: '', subject: 'App Build Failed ', to: 'l@gmail.com'
+                }              
+			 }			
+        }
+        stage('Deploy to QA Test Environment') {
+            steps {
+                script{
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'QA_Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+             post 
+			 {
+                failure 
+				{
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'App Deployment Failed ', to: 'l@gmail.com'
+                }
+                success 
+				{
+                  sh "echo 'Send mail on Successful'"
+					mail bcc: 'l@gmail.com', body: "jenkins-${JOB_NAME}-${BUILD_NUMBER}", cc: 'l@gmail.com', from: '', replyTo: '', subject: 'App Deployment Successful ', to: 'l@gmail.com'
+                }
+                unstable 
+				{
+                  sh "echo 'Send mail on Unstable'"
+					mail bcc: 'l@gmail.com', body: "jenkins-${JOB_NAME}-${BUILD_NUMBER}", cc: 'l@gmail.com', from: '', replyTo: '', subject: 'App Deployment Job is Unstable ', to: 'l@gmail.com'
+                }
+             }		
+        }
+    }
+}
+
+
