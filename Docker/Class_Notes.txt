@@ -398,3 +398,165 @@ Next ::::
 		
 			- docker commit 
 			- docker build 
+
+		
+	
+
+#########################
+Day 21 : 29th Sep. 2025
+#########################		
+
+	
+	- Create Container Images :::
+	
+		Container Images 
+			--	Is a Static file that defined the properties of the Container and its dependencies 
+			--  Container Images are Non-Executables
+			--  Container Images are composed of various Layers created using the Dockerfile Instructions			
+		
+		
+
+		Container Registry 
+			--	It is used to save and version control the Container Images 
+				Dockerhub is Container Registry to be used.
+				https://hub.docker.com/			
+		
+		Container Repositories
+			--	Container Repositories	are the subset of Container Registry
+			
+			github 			Docker-Hub_Registry
+				repo1			Docker-hub_Repository1
+				repo2			Docker-hub_Repository2
+
+				
+	Create Container Images :::
+	
+	- Docker commit :::
+		
+		=> To Create a New Container Image based on the properties of existing Container.
+		
+			Syntax :
+
+				docker commit <existing_container_id> <dockerhub_repo_name>/New_Image_Name>:<tag_Name>
+				
+				Eg.: 
+				
+					docker commit 3af035ab37d8 loksaieta/pl-javabuild-img:v1.0
+				
+
+	- Docker Push :
+	
+		=> To Push the Image to Container Registry 
+		
+		=> Create Personel Access Token in Dockerhub registry :::
+		
+				docker login -u loksaieta
+			
+				sadfasdfeascqaassd
+			
+		
+			docker push loksaieta/pl-javabuild-img:v1.0
+			
+
+	- Docker Build :
+	
+		- To create a new Container Image based on the Dockerfile reference.
+		- Dockerfile composed of Instructions to Create Docker Container Images
+		- Application Developers create the Dockerfile and update in the Source Code Repository. 
+		
+			Syntax :
+			
+			docker build -t <dockerhub_repo_name>/New_Image_Name>:<tag_Name> .		# '.' refers to the Dockerfile path
+			
+			Eg.: 
+			
+			docker build -t loksaieta/pl-appbuild-img .	# '.' refers to the Dockerfile path	
+
+		vi Dockerfile 
+		
+			FROM ubuntu
+			RUN apt update -y
+			RUN apt install git -y 
+			RUN apt install maven -y 
+			
+			
+		Dockerfile Instructions :
+		
+		FROM 			# This is identify the base Image 
+		
+		RUN				# To execute any package manager
+
+		COPY 			# To Copy the files from host volume to container volume 
+		
+		CP				# To Copy the files within the Container Volume 
+		
+		ADD 			# To Copy/Download the files from external URLs to Container Volume 
+
+		EXPOSE			# To set the Container Port.
+		
+		WORKDIR			# To Set the Current Working Directory
+		
+		CMD				# To Set the default Start-up Task to start a Container 
+						# The Start-up Task can be Modified at the time of Container Creation 
+						
+		ENTRYPOINT		# To Set the default Start-up Task to start a Container 
+						# The Start-up Task cannot be Modified at the time of Container Creation 		
+
+
+
+		Eg.: 
+		
+			Containerize the web application using docker build command.
+			
+		vi Dockerfile 
+		
+		FROM tomcat:8.0
+		COPY ./target/*.war /usr/local/tomcat/webapps
+		EXPOSE 8080		
+	
+	
+	- Add devopsadmin user to docker group :
+	
+		usermod -aG docker devopsadmin		
+	
+	- docker build -t loksaieta/myweapp .	# '.' refers to the Dockerfile path	
+		
+		
+		
+	- Container Orchestration ::::
+	
+		- This to ensure high availability of Containers ::::
+		
+		3-Tier Application Architecture ????
+		
+			Sign_in Micro-Service
+			
+				- Front-End Layer	==> User Interaction ==> C1 
+				
+				- Application Layer	==> Business Logic	 ==> C2 
+				
+				- Back-End Layer	==> Database 		 ==> C3 
+				
+				
+		- Docker Compose :::
+		
+			- Docker Compose is an additional plugin to Docker Engine
+			- It is used to run more than once Container as a Service!
+			
+			- Used Docker Compose all the Containers can be started/Stopped at a same time to access as a Service.
+			
+			
+Next :::
+
+	Work with Docker Compose!
+	
+	Overview Docker Swarm 
+	
+	Docker Swarm vs Kubernetes
+	
+	Enhance CICD Pipeline using Docker.
+	
+	
+	Kubernetes Module!
+			
+	
