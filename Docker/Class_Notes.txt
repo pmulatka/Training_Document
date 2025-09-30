@@ -559,4 +559,277 @@ Next :::
 	
 	Kubernetes Module!
 			
+
+			
+#########################
+Day 22 : 30th Sep. 2025
+#########################		
+
+
+	Work with Docker Compose!
+							
+	- Docker Compose :::
 	
+		- Docker Compose is an additional plugin to Docker Engine
+		- It is used to run more than once Container as a Service!
+		- DockerCompose.yaml ==> To define the properties of the Containers to run as a service!
+
+		
+		- Used Docker Compose all the Containers can be started/Stopped at a same time to access as a Service.
+	
+		3-Tier Application Architecture ????
+		
+			Sign_in Micro-Service
+			
+				- Front-End Layer	==> User Interaction ==> C1 
+				
+				- Application Layer	==> Business Logic	 ==> C2 
+				
+				- Back-End Layer	==> Database 		 ==> C3 	
+		
+			Any Container that is part of a Service :
+		
+				should be in-sync with other container within the service 
+				
+				
+				Start/Stop all these container at the same time.
+		
+		
+		
+		Work with Docker Compose ::
+		
+			Install Docker_Compose :::
+			
+			https://docs.docker.com/compose/
+			
+			https://docs.docker.com/compose/install/linux/
+			
+			https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
+			
+			
+			
+# Manual Installation of Docker Compose :::
+			
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+	
+docker compose version
+
+vi docker-compose.yaml
+
+
+
+### Yaml Files are based on Keys & Values -- key:value Pairs
+
+version: '3'
+services:
+  webserv1:
+    image: "tomcat:8.0"
+    ports:
+      - 8098:8080
+  dbserv1:
+    image: "redis:alpine"
+	
+docker compose up 
+
+docker compose down 
+
+
+	Service :
+	
+		C1.1,1.2,1.3
+		
+		C2.1.2.2,2.3 
+
+	E_Commerce Application:
+	
+		Prod_Server 	-->  10000 Users 		---> 	10 Servers
+							 20000 Users 		--->	Scale the Servers	
+
+VM :
+
+	Environments :
+	
+	Non-Prod							Prod Environment  
+	
+		Dev 
+		
+		QA 
+		
+		UAT 			==========>			Prod Server1,2,3,4,5
+		
+		
+	Container Orchestration Tool : Docker Swarm 
+		
+	- Docker Swarm ::::
+	
+		- Docker Swarm is one the Container Orchestration Tools.
+		- It is meant only for Docker Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		
+		- We cannot do Auto-Scaling or Load Balancing!			
+
+		3-Tier Application Service :	
+				
+			User_SignIn Service :		
+				
+				Front-End			-->		c1.0,1.1,1.2		
+						
+				Application_Layer 	-->		c2.0,2.1,2.2			
+						
+				Database Layer 		-->		c3.0,3.1,3.2	
+
+
+	- Kubernetes ::::
+	
+		- It is an Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.
+		- It perform self healing.
+		
+		
+		AWS : 	ECS,ECR,EKS 
+		
+		Azure: 	ACS,ACR,AKS
+
+		GCP:	GCE,GCR,GKE
+		
+
+	DevOps ::::
+		
+		- Create CICD Pipeline to automate Application Build and Containerization.
+
+
+		- Stages of CI/CD Pipeline:
+		
+			-> git clone 	===> SCM_Checkout								git/github
+			
+			-> Application Build using Maven 								maven 
+			
+			-> Unit Testing using Maven &  Junit 							maven & junit 
+			
+			-> Create Artifacts using Maven									maven  
+			
+			-> Promote the Application Artifacts to Target Environment 		Ansible/SSH Plugins/Docker/Kubernetes
+			
+			-> Send Email Notifications to the Teams using Email Server 	Email Servers 
+			
+			-> Target Environment : QA/UAT/Prod 
+
+
+		- CI-CD Pipeline for Containerized Application Service :
+		
+		
+		Stages :
+		
+			- SCM_Checkout
+			- Application_Build(mvn clean package)			# *.war 
+			- Application Image Build 		
+			- Login to Container Registry(DockerHub)
+			- Push the Application Image to Container Registry(DockerHub)
+			
+			
+			
+			- Deploy Application Images to Target Environment using Kubernetes.					 # Upon Kubernetes Module.
+			
+			
+		How to Implement this?
+		
+		
+		Resources :::
+		
+			- Servers :
+			
+				- Jenkins_Master(VM)		:	Purpose: To Create CICD Pipeline Projects and schedule to run in the build nodes.
+					Jenkins_SlaveNode1(VM)	: 	Purpose: To run the Application Build and Application Image Build
+														 Publish the Application Image to Container Registry.
+				
+			- Tools :
+			
+				- Jenkins_Master(VM)		: 	Tools:	git,jdk,jenkins(8080)
+					Jenkins_SlaveNode1(VM)	:	Tools:	git,jdk,maven,docker
+			
+			
+			- External/Internal Dependencies :			
+			
+				- Create DockerHub Access Token
+			
+				- Configure DockerHub Access Token in Jenkins Credential Manager 
+		
+		
+				=> Create Personel Access Token in Dockerhub registry :::
+				
+						docker login -u loksaieta
+					
+						dkkjhkhkjhkko				
+
+
+				- Add devopsadmin user to docker group :
+				
+					usermod -aG docker devopsadmin	
+
+
+		
+		Create CI Pipeline :
+		
+		Stages :
+		
+			- SCM_Checkout
+			- Application_Build 
+			- Application Image_Build 
+			- Login to DockerHub 
+			- Push the Application Image to DockerHub
+			
+		
+													
+pipeline {
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Application Image Build') {
+            steps {
+                echo 'Perform Application Image Build'
+				sh "docker build -t loksaieta/pljavawebapp:${BUILD_NUMBER} ."
+            }
+        }
+        stage('Login to DockerHub') {
+            steps {
+                echo 'Login to DockerHub'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				
+            }
+        }
+        stage('Push to DockerHub') {
+            steps {
+                echo 'Push Image to DockerHub'
+				sh "docker push loksaieta/pljavawebapp:${BUILD_NUMBER}"
+            }
+        }
+    }
+}		
+		
+
+Next :
+
+		Kubernetes!
