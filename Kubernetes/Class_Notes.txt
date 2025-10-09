@@ -1,0 +1,287 @@
+		
+		
+#########################
+Day 23 : 6th Oct. 2025
+#########################		
+		
+	Container Orchestration using Kubernetes :::
+	
+	- Kubernetes ::::
+	
+		- It is an Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.
+		- It perform self healing.
+		
+		
+		AWS : 	ECS,ECR,EKS		
+		Azure: 	ACS,ACR,AKS
+		GCP:	GCE,GCR,GKE
+		
+	- Kubernetes Architecture :::
+	
+		Based on ;
+		
+			Kubernetes_Master(Control-Plane) (VM)
+				Kubernetes_Workernode1 (VM)				pods(IP) 
+				Kubernetes_Workernode2 (VM)
+				Kubernetes_Workernode3 (VM)
+				Kubernetes_Workernode4 (VM)
+		
+		
+	
+	Environments 
+	
+		Dev 
+		
+		Build 
+	
+		Target Environment:
+		
+			QA 
+			
+			UAT 							===> 	Prod Environment		
+		
+	
+		Non-Prod :												Prod :
+		
+		Kubernetes_Master										Kubernetes_Master
+			Kubernetes_Workernodes                              	Kubernetes_Workernodes
+			
+			
+		3-Tier Application Service :	
+				
+			User_SignIn Service :		
+				
+				Front-End			-->		c1.0,1.1,1.2		
+						
+				Application_Layer 	-->		c2.0,2.1,2.2			
+						
+				Database Layer 		-->		c3.0,3.1,3.2	
+
+				
+	
+	- Kubernetes Architecture Components :::
+	
+	
+		- API Server 			# It act as an interface between the User and Kubernetes Master
+		
+		- ETCD					# Is a single point of source for Kubernetes
+		
+		- Scheduler				# Is used to identify the healthy worknode for the pods deployment 
+		
+		- Controller Manager	# To ensure the pods are running in its desired state.
+								# Perform Self-Healing 
+								# Ensure High Availability 
+		
+		
+		- Kubelet				# Is a Kubernetes Agent, that actually deploy the pods 
+
+		- CRI - Container Runtime Interface (Container-D)
+								# Is to connect to Container Registry and download the Container Images 
+								
+		- Kube-Proxy 			# To enable Pod Networking.		
+								# Assign pod IP Address based on the Network Plugins 
+	
+	
+	
+	- Kubernetes Terminologies & Concepts :
+	
+		Container Images 
+			--	Is a Static file that defined the properties of the Container and its dependencies 
+			--  Container Images are Non-Executables
+			--  Container Images are composed of various Layers created using the Dockerfile Instructions
+			
+		Containers 
+			--	Containers are the executable units of Container Images
+			-- 	Containers are used to run the applications defined in the Container Images 		
+		
+		Container Registry 
+			--	It is used to save and version control the Container Images 
+				Dockerhub is Container Registry to be used.
+				https://hub.docker.com/			
+		
+		Container Repositories
+			--	Container Repositories	are the subset of Container Registry
+			
+			github 			Docker-Hub_Registry
+				repo1			Docker-hub_Repository1
+				repo2			Docker-hub_Repository2		
+		
+		- Kubernetes Cluster 
+		
+			- Collection of Kubernetes WorkerNodes
+
+			Kubernetes_Master(Control-Plane) (VM)				
+				Cluster1										AWS_Mum_Region
+					Kubernetes_Workernode1 (VM)
+					Kubernetes_Workernode2 (VM)
+					Kubernetes_Workernode3 (VM)
+
+			Kubernetes_Master(Control-Plane) (VM)				
+				Cluster1										AWS_Mum_Region
+					Kubernetes_Workernode1 (VM)
+					Kubernetes_Workernode2 (VM)
+					Kubernetes_Workernode3 (VM)
+					Kubernetes_Workernode4 (VM)
+				Cluster2										AWS_SNG_Region
+					Kubernetes_Workernode1 (VM)
+					Kubernetes_Workernode2 (VM)
+					Kubernetes_Workernode3 (VM)
+					Kubernetes_Workernode4 (VM)
+
+
+			Kubernetes_Master(Control-Plane) (VM)					AWS/AZURE/On-Prem
+			
+				Kubernetes_Master1(Control-Plane) (VM)				AWS			
+					Cluster1										AWS_Mum_Region
+						Kubernetes_Workernode1 (VM)
+						Kubernetes_Workernode2 (VM)
+						Kubernetes_Workernode3 (VM)
+						Kubernetes_Workernode4 (VM)
+					Cluster2										AWS_SNG_Region
+						Kubernetes_Workernode1 (VM)
+						Kubernetes_Workernode2 (VM)
+						Kubernetes_Workernode3 (VM)
+						Kubernetes_Workernode4 (VM)
+
+				Kubernetes_Master2(Control-Plane) (VM)				AZURE 	
+					Cluster1										Az_Mum_Region
+						Kubernetes_Workernode1 (VM)
+						Kubernetes_Workernode2 (VM)
+						Kubernetes_Workernode3 (VM)
+						Kubernetes_Workernode4 (VM)
+					Cluster2										Az_SNG_Region
+						Kubernetes_Workernode1 (VM)
+						Kubernetes_Workernode2 (VM)
+						Kubernetes_Workernode3 (VM)
+						Kubernetes_Workernode4 (VM)		
+				
+
+		- Kubectl				# Is a command line utility to interact with Kubernetes Master 
+		
+		- Pods 					# Atomic Unit of Schedule
+								# Used to Execute Micro-Services 
+								
+								# Used for Production Level Implementation
+Next :::
+	
+	Working with Kubernetes ::::
+	
+		Kubernetes_Master(Control-Plane) (VM)				
+				Kubernetes_Workernode1 (VM)
+				Kubernetes_Workernode2 (VM)
+				
+				
+		- Kubeadm 				# Is a Command Line Utility to Setup and Config Kubernetes Architecture
+								
+		https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/
+								
+		- Minikube!				# Based on single Node Kubernetes				
+				
+		- Managed Services 		# EKS,AKS,GKE
+		
+		
+		
+		- Kubernetes Controller Objects :
+		
+			- Replicaset 
+			
+			- Deployment Controller Objects 
+		
+		
+		- Kubernetes Services 
+			- NodePort
+			- ClusterIP 
+			- Load Balancer 
+			
+		- Kubernetes Volumes 
+			- Hostpath Volume 
+			- Persistant Volume 
+			- Persistant Volume Claim
+			
+		- Kubernetes Namespaces
+	
+		
+#########################
+Day 24 : 9th Oct. 2025
+#########################	
+
+	Installation of Kubernetes using Kubeadm :::	
+	
+		1. Launch 3 VMs on AWS Cloud (Ubuntu v22.04) --> (1 Master Node, 2 WorkerNodes)
+		
+		In all the Nodes(i.e., Master Node and WorkerNodes):
+		
+			2. Allow all traffic for all the nodes - just for this demo
+			3. Change the HostName of all the Nodes
+			4. Disable swap configuration in all the nodes
+			5. Install Docker in all the nodes ******* Optional
+			6. Install CRI - 'Container-D' in all the nodes
+			7. Install Kubeadm,kubelet,kubectl 
+			8. Enable Kubelet	
+		   
+		Only on Master Node:
+		
+			9. Execute Kubeadm Init Command 		# To initialize Kubernetes Master Node
+			10. Enable user Access to Kubernetes
+			11. Install flannel Network plugins for kubeproxy
+
+		Only on WorkerNodes:		
+		
+			12. Execute Kubeadm Join Command 		# To attach the Worknodes with Kubernetes Master Node.		
+		
+		
+	
+Working with Kubernetes Objects :::
+
+	- Pod ::::
+	
+	
+	- Namespaces :::
+	
+		- Kubernetes Namespaces are the Logical partitioning of Kubernetes Cluster.
+		
+		- Used to maintain the logical group of Kubernetes Objects
+		
+		- Created based on environments(dev/qa/uat)
+		
+		- Created based on Teams(devteam1/devteam2)
+		
+		
+		kubectl create namespace dev 
+		
+		kubectl create namespace qa
+		
+		kubectl create namespace uat
+		
+		kubectl create -f nginx-devpod.yaml
+		
+		kubectl get pods --all-namespaces
+		
+		kubectl get pods -n dev 
+		
+		kubectl get pods -n kube-system
+		
+
+
+Next ::
+
+		- Kubernetes Controller Objects :
+		
+			- Replicaset 
+			
+			- Deployment Controller Objects 
+	
+		
+		- Kubernetes Services 
+			- NodePort
+			- ClusterIP 
+			- Load Balancer 
+			
+		- Kubernetes Volumes 
+			- Hostpath Volume 
+			- Persistant Volume 
+			- Persistant Volume Claim	
