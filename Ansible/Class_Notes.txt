@@ -1,0 +1,39 @@
+#########################
+Day 26 : 13th Oct. 2025
+#########################
+
+	- Configuration Management using Ansible :::
+	
+	IAC - Infra-Structure as Code 
+	
+		- Infra-Structure Provisioning/Creation		====> Terraform/CF/ARM
+		
+		- Infra-Structure Configuration				====> Ansible/Chef/Puppet
+		
+		
+	
+		- Declarative Scripts using *.yaml/*.json file formats
+		- Easy to code and maintain.
+		
+		
+		
+	Why?
+	
+	Ansible Architecture 
+	
+	Ansible Architecture Components
+	
+		- Ansible Controller 
+		
+		- Ansible Nodes 
+		
+		- Inventory File 
+		
+		- Modules 
+		
+		- Ansible Config File - ansible.config
+
+Next :::
+	
+	Ansible Concepts 
+	
