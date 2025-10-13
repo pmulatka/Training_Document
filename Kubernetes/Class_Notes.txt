@@ -406,4 +406,210 @@ Next :::
 			
 
 
+#########################
+Day 26 : 13th Oct. 2025
+#########################
+
+	- Kubernetes Services 
+		- NodePort
+		- ClusterIP 
+		- Load Balancer - Created at the Application Level.
+		
+		Routing:
+		
+			- Simple Routing 					# Applicable to any static web page
+			
+			- Host-Based Routing 
+			
+			- Path Routing 
+			
+			- Query-Based Routing 
+			
+			
+	
+	www.google.com 				URL 
+		
+	www.google.mail.com													# Host Based Routing 
+	
+	www.google.translate.com
+
+	www.google.mail.com	
+	
+	inbox 				==> www.google.mail.com/inbox					# Path based Routing
+	
+	sent 				==> www.google.mail.com/sent
+	
+	trash 				==> www.google.mail.com/trash
+
+	inbox 				==> www.google.mail.com/inbox?email_id=xxx		# Query-Based Routing
+	
+	
+	- Integrate Kubernetes in CICD Pipeline	:::::
+	
+	
+	- Deploy Application Images to Target Environment using Kubernetes.					 # Upon Kubernetes Module.
+			
+			
+	How to Implement this?
+	
+	
+	Resources :::
+	
+		- Servers :
+		
+			- Jenkins_Master(VM)		:	Purpose: To Create CICD Pipeline Projects and schedule to run in the build nodes.
+				Jenkins_SlaveNode1(VM)	: 	Purpose: To run the Application Build and Application Image Build
+													 Publish the Application Image to Container Registry.
+													 
+			- Kubernetes_Master 		: 	Purpose: To Deploy Application Pods
+				Kubernetes_Workernode1
+				Kubernetes_Workernode2
+			
+			
+		- Tools :
+		
+			- Jenkins_Master(VM)		: 	Tools:	git,jdk,jenkins(8080)
+				Jenkins_SlaveNode1(VM)	:	Tools:	git,jdk,maven,docker
+				
+			  Kubernetes_Master 		: 	Tools: 	kubeadm,kubectl,kubelet
+				Kubernetes_Workernode1
+				Kubernetes_Workernode2		
+		
+		- External/Internal Dependencies :			
+		
+			- Create DockerHub Access Token
+		
+			- Configure DockerHub Access Token in Jenkins Credential Manager 
+	
+	
+			=> Create Personel Access Token in Dockerhub registry :::
+			
+					docker login -u loksaieta
+				
+				d
+
+
+			- Add devopsadmin user to docker group :
+			
+				usermod -aG docker devopsadmin	
+				
+				
+			- What are the pre-requisites to execute Deploy to Kubernetes Stage ?
+
+				
+				- Integrate Kubernetes Master with Jenkins Master using Publish Over SSH Plugins 
+				
+						- Host_Name 
+						- User_Name 
+						- SSH_Keys
+	
+	
+				- Kubernetes Manifest File 			# Created and maintained in the Source Code Repository.
+
+
+# kubedeploy.yaml 
+
+	
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/pljavawebapp
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080					
+
+
+		
+		Create CI Pipeline :
+		
+		Stages :
+		
+			- SCM_Checkout
+			- Application_Build 
+			- Application Image_Build 
+			- Login to DockerHub 
+			- Push the Application Image to DockerHub
+			- Deploy to Kubernetes
+			
+		
+													
+pipeline {
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/PL-DevOps-GenAI-0825/java-webapp-project.git'			
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Application Image Build') {
+            steps {
+                echo 'Perform Application Image Build'
+				sh "docker build -t loksaieta/pljavawebapp ."
+            }
+        }
+        stage('Login to DockerHub') {
+            steps {
+                echo 'Login to DockerHub'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				
+            }
+        }
+        stage('Push to DockerHub') {
+            steps {
+                echo 'Push Image to DockerHub'
+				sh "docker push loksaieta/pljavawebapp"
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                script{
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kubedeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}				
+            }
+        }
+    }
+}		
+	
 
