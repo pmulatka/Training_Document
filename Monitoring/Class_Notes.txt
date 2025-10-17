@@ -1,0 +1,57 @@
+
+#########################
+Day 29 : 17th Oct. 2025
+#########################
+
+	- Continuous Monitoring :::
+		
+		- To ensure high availability of Applications and Infra-Structure.
+		- Perform Continuous Monitoring of Applications and Infra-Structure using Monitoring Tools and DevOps Strategies.
+		
+		Production Monitoring Team 
+		
+		- Infra-Structure Monitoring ::
+		
+			- CPU Utilization
+			
+				--> Threshold limit --> 75% 
+				
+				--> Notify the User about the usage.
+		
+			- Memory Utilization :
+			
+				--> Threshold limit --> 75% 
+				
+				--> Notify the User about the usage.				
+			
+			Tools :
+			
+				- Prometheus/Grafana/Dynatrace/Splunk/Nagios - Jenkins 
+
+
+		- Application Monitoring ::
+		
+			- AppDynamics/DataDog
+		
+			
+		
+		- Prometheus/Grafana :::
+		
+			Prometheus		==> Monitoring Tool 
+			
+			Grafana			==> Visualization Tool to Create Monitoring Dashboard 
+							==> Prometheus acts as a Data-Source to Grafana 
+							
+							
+		- Architecture of Monitoring Tools  
+		
+			- Based Client Server Architecture			
+			- Based on Monitoring Agents 			
+		
+		- Install and Configure Prometheus/Grafana Monitoring Tools 
+		
+		- Create Monitoring Dashboards
+		
+		- Time Series Data Base
+		
+		
