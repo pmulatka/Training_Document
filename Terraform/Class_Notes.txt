@@ -124,3 +124,90 @@ Next :
 	Monitoring using Prometheus/Grafana
 
 	DevOps Projects!
+
+
+	
+#########################
+Day 29 : 17th Oct. 2025
+#########################
+
+	- Working with Terraform Scripts to Create AWS Resources 
+	
+		- Launch EC2 Instance
+		
+		AWS :
+		
+			- Console 									# Password Based Authentication
+			
+			- AWS CLI 									# Token for Authentication
+			
+			- SDK										# Token for Authentication
+			
+			- IAC Tools --> Terraform/Cloudformation 
+			
+			- Enable User Authentication.
+			
+			- Create AWS Access Key & Secret Key.		# Token for Authentication
+			
+				Access Key: 		zxcvzxcvxcKR
+				
+				Secret Access Key: 	zxcvzxcv
+				
+				
+		- Open Visual Studio Code 
+		
+		- Install the Extension/Plugins :
+		
+			Terraform Extension for Visual Studio Code
+		
+		- Create Terraform Project :::	
+		
+		
+
+
+
+			
+		- Functionalities :
+		
+			==>	Create/Add New Resource					+
+			
+			==>	Delete/Destroy Resource 				- 
+			
+			==> Alter/Change Resource 					~
+			
+			
+		- Terraform Process Workflow :::
+		
+			- Identify the Scope of Target Environment (AWS/Azure/GCP)
+			
+			- Write Terraform Scripts based on the Scope 
+			
+			- Perform Terraform Init --> Initialize Terraform Provider to the Terraform Project 
+			
+			- Perform Terraform Plan --> To Preview the Terraform Script
+			
+			- Perform Terraform Apply -> To apply the changes to target Infra-Structure	
+			
+
+		- Create a folder(Workspace)
+		
+			Open VS Code -> Goto File Menu -> Choose Open Folder 			
+			
+		- Open Terminal :
+		
+			> terraform --version 
+			
+			
+		- Terraform State File :
+		
+			- Used to maintain the current state of the Actual Infra-Structure
+
+			
+		terraform import resource resource id
+		
+		
+		Terraform Project ::::
+		
+			AWS Infra-Structure:
+			
+			
