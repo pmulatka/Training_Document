@@ -54,4 +54,41 @@ Day 29 : 17th Oct. 2025
 		
 		- Time Series Data Base
 		
+
+
+
+#########################
+Day 30 : 21st Oct. 2025
+#########################
+
+	- Prometheus/Grafana :::
+	
+		Prometheus		==> Monitoring Tool 
+		
+		Grafana			==> Visualization Tool to Create Monitoring Dashboard 
+						==> Prometheus acts as a Data-Source to Grafana 
+		
+		- Install and Configure Prometheus/Grafana Monitoring Tools 
+
+			Monitoring Server(Install Prometheus/Grafana) - VM 
+			
+			Target Server(Install Node Exporter) - (VM)
+			
+		
+		- Create Monitoring Dashboards
+		
+			- Create Monitoring Dashboard in Grafana using Prometheus
+		
+		- Time Series Data Base		
+		
+		AmazonLinux - default user : ec2-user
+		
+		PromQL 
+		
+		
+		Production Monitoring/Support Team - Create PromQL Queries to pull the metrics periodically. 
+		
+		Dynatrace -> 
+		
+			- Monitoring & Dashboards.
 		
