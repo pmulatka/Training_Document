@@ -1,0 +1,32 @@
+
+#########################
+Day 30 : 21st Oct. 2025
+#########################
+
+	Overview of Python
+	Features, Benefits, Uses of Python
+	Installation and Setup of Python Environment
+	Various Types of Sequences in Python
+	File Operations
+	Python Functions
+	OOPs Concepts
+	Modules
+	Errors and Exception Handling
+	Python Console based application and Web Application using Flask
+	Deploying and Consuming Python Applications
+	
+	
+	
+	- Fundamentals of Python ::
+	
+		- Python Console Application
+
+		- Python Web Application
+		
+		
+	-
+	
+	
+	
+	
+	
