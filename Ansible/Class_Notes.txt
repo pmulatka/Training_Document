@@ -185,3 +185,29 @@ Next ::
 
 
 	Terraform ::::
+
+
+
+
+
+#########################
+Day 28 : 16th Oct. 2025
+#########################	
+
+	Continue with Ansible Playbooks
+	
+		- Handling User Defined Variables 
+		
+		- Conditional Exections 
+		
+		- Handlers
+		
+		- Loops 
+		
+		- Ansible Roles & Galaxy 
+
+	- Handlers ::::	
+	
+	- Ansible Roles & Galaxy :::
+	
+	

@@ -1,0 +1,7 @@
+	DevOps Project ::::
+	
+		Banking Project Documents:
+			https://github.com/PL-DevOps-GenAI-0825/Training_Document/tree/main/Project
+		
+		Banking Application Source Code: 
+			https://github.com/PL-DevOps-GenAI-0825/BankingWebApp

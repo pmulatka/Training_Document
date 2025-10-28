@@ -1,0 +1,149 @@
+
+#########################
+Day 30 : 21st Oct. 2025
+#########################
+
+	Overview of Python
+	Features, Benefits, Uses of Python
+	Installation and Setup of Python Environment
+	Various Types of Sequences in Python
+	File Operations
+	Python Functions
+	OOPs Concepts
+	Modules
+	Errors and Exception Handling
+	Python Console based application and Web Application using Flask
+	Deploying and Consuming Python Applications
+	
+	
+	
+	- Fundamentals of Python ::
+	
+		- Python Console Application
+
+		- Python Web Application
+		
+		
+		
+	
+#########################
+Day 31 : 23nd Oct. 2025
+#########################	
+
+	Working with Python :
+	
+	- Install Python :::
+	
+		https://www.python.org/downloads/
+		
+			- Python IDLE 
+			
+			- Visual Studio Code 
+			
+				- Install Python Extension for VS Code. 
+			
+			
+			
+	
+	- Create Python Projects using Visual Studio Code.
+	
+		- Python Console Application
+
+	My-ConsoleApp-Project
+		app.py					
+
+		- Python Web Application	
+		
+			-> Web Application Framework 
+			
+				- Flask
+				- Django 
+			
+			
+			.Net -> Framework
+			
+			
+	Workspace Management :::
+	
+		- Flask
+		
+Folder Structure :
+
+	My-WebApp-Project
+		app.py									# Business Logic 
+		templates								# Web Components - User Interface
+			sample.html		
+			*.css 
+			*.js
+		
+		- Create Project Folder in VS Code 
+		
+		- Open New Terminal :			
+			
+			Install : 	Web Application Framework
+				pip install flask	
+	
+		- Create app.py							# Create this file in the root directory
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def sample():
+	return render_template("sample.html")
+
+if "__name__" == "__main__":
+	app.run(debug=True)
+
+	
+		- Create "templates" folder at root level :::
+				Create Html files :: eg. sample.html 		
+				
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Python Web Application!!!!! ! </p>
+  </div>
+</body>
+</html>
+
+
+		set FLASK_APP=sample
+	
+		python -m flask run
+		
+		
+
+
+DevOps Modules :
+
+	--> Docker,Kubernetes,Jenkins 
+	
+	--> Terraform,Ansible
+	
+	--> Prometheus/Grafana
+	
+		
+Next: 
+
+	- Project - 30 Mins
+	
+		- 1 Week 
+		
+	- AWS Module	-
+	
+	
+	
+	
+	

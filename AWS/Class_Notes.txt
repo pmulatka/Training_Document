@@ -1,0 +1,157 @@
+#########################
+Day 32 : 24th Oct. 2025
+#########################
+
+	AWS Cloud Services!
+	
+	
+		Python Skills :
+		
+		
+		CICD - Jenkins,Docker,Kubernetes
+		
+		
+		Dockerfile : 
+	
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim-buster
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file into the container
+COPY requirements.txt /app/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code into the container
+COPY . /app/
+
+# Expose the port your Django application will run on
+EXPOSE 8000
+
+# Command to run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+
+-> FAQs of All DevOps Modules - Docker python deployment 
+
+-> Scenario Based FAQs - Docker python deployment 
+
+
+
+
+
+AWS Cloud Services! ::::
+
+
+	AWS Cloud Platform --> 
+	
+		AWS Cloud Associate Level - 
+		
+		Core Feature of Cloud Computing!	==> Common to any Cloud Platform - AWS/Azure/GCP
+		
+		
+		AWS Cloud Services :::
+
+
+	What is Cloud Computing ?
+	
+		- To Avail all IT Services thru Internet:
+		
+		- Cost
+		
+		
+		
+	20 IT Service :
+	
+		On-Premises Infra-Structure:
+		
+			- VM ++++
+			- DataBase +++
+			- Networking  +++
+			- Storage +++++++
+			
+		Cloud Platform :
+		
+			- VM ++++
+			- DataBase +++
+			- Networking  +++
+			- Storage +++++++			
+		
+	
+#########################
+Day 33 : 27th Oct. 2025
+#########################
+
+	AWS Cloud Services :
+	
+		- AWS Cloud Infra-Structure
+		
+			-> Global Infra-Structure
+
+				https://aws.amazon.com/about-aws/global-infrastructure/
+				
+				https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+				
+				
+				AWS Services are based on Regions / Global 				
+				
+				- Global Services 
+				
+				- Regional Services 
+						https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+				
+			
+			-> Security
+			
+				-> RBAC => Role Based Access Control 
+				
+					--> IAM Service -> Identity and Access Management Service 
+
+			File: sample.txt ::::
+			
+				-> R/W/U/D 
+				
+				
+				
+			IAM User Group : Developers Group:
+				
+						- S3 : Dev_Artifacts :*.*
+				
+				
+						Add Developer1 here.
+				
+				
+	- Working with AWS IAM Service ::::	- Global Service 
+	
+	
+		- Create/Maintain IAM User Group 
+		
+		- Create/Maintain IAM User 
+		
+		
+			https://6833522323423423451.signin.aws.amazon.com/console
+			
+			damuser1
+		
+		- Login to AWS Console as IAM User 
+		
+		- Change the Password during initial Login 
+		
+		- Set the Region
+		
+		-> Create MFA 		
+		
+Next :
+
+		
+		- Create/Maintain IAM Policies 
+		
+		- Create/Maintain IAM Role 
