@@ -155,3 +155,236 @@ Next :
 		- Create/Maintain IAM Policies 
 		
 		- Create/Maintain IAM Role 
+
+
+
+
+#########################
+Day 34 : 28th Oct. 2025
+#########################
+
+	IAM Service: 
+	
+		IAM Policies ::::
+		
+			==> Use the default policies 
+			
+			==> Create custom IAM policies
+			
+					==> Use Case :
+					
+							Version Control System : --> github 
+							
+							S3 Services -> Simple Storage Services 
+							
+								Store the files -> 
+								
+									App_Source_Code_V1.0	==> S3 Bucket
+								
+									mywebapp.war_v1.0	==> 	AWS  Deployment Servers
+									mywebapp.war_v1.1	==> 	AWS  Deployment Servers
+									mywebapp.war_v1.2	==> 	AWS  Deployment Servers
+									
+							Create S3 Bucket -> AppTeam_bkt1 - Dev_Team1,2,3,4,5
+							
+											DevTeam1 --> 
+											
+											Custom IAM Policies based on the Roles 
+											
+												App_Lead ==> Create Source Code 
+												
+												App_Lead ==> Can review and upload the changes to S3 
+												
+												
+												Developers 	==> S3_IAM_Policy1 -> Read Access 		==>	AppTeam_bkt1
+												
+												App_Lead 	==> S3_IAM_Policy2 -> Read/Write/Update ==>	AppTeam_bkt1
+												
+												App_Admin	==> S3_IAM_Policy3 -> *.* 				==>	AppTeam_bkt1		
+		
+		
+		IAM Roles ::::
+		
+			
+			Jenkins_Slave_Node => EC2 Instance ==> Created Application Artifacts , Application image, 
+				
+				
+				Version Control System :
+				
+				Dev/Build Process :
+				
+				Source_Code Repository(Github) 			Artifactory_Libraries(Jfrog)		Container Registry(DockerHub)
+				
+					mywebapp.java:v1						mywebapp.war:v1						mywebapp_img:v1
+					
+					mywebapp.java:v2						mywebapp.war:v2						mywebapp_img:v2
+					
+					mywebapp.java:v3						mywebapp.war:v3						mywebapp_img:v3
+					
+					mywebapp.java:v4						mywebapp.war:v4						mywebapp_img:v4					
+
+
+			S3 Bucket :::
+			
+				Mywebapp1_bkt	= To version control App Artifacts.
+				
+					mywebapp.war:v1
+				    mywebapp.war:v2
+				    mywebapp.war:v3
+				    mywebapp.war:v4
+					
+					
+			EC2 Instance(Build_Server)			==> 		S3 Bucket - Mywebapp1_bkt
+			
+				mywebapp.war:v1				  =======>			mywebapp.war:v1
+											upload to s3
+			
+					
+			
+	IAM_User1 :
+		
+		To allow any IAM_User to Access S3 Bucket, we need IAM_Policy.		
+	
+	EC2_Instance : EC2 Instance(Build_Server)
+	
+		To allow any AWS Service to Access S3 Bucket, we need IAM_Role.
+		
+	
+	How to Assign IAM Role to EC2 Instance :
+	
+		While launching the node -> Use Additional Details -> Choose the specific IAM Role using IAM instance profile option.
+		
+	
+	- IAM Summary :::
+					
+		
+		
+	AWS Compute Services ::::
+	
+		EC2 - Elastic Compute Cloud Service (VM)
+		
+		
+		- EC2 User Data 
+		
+			- Execute BootStrap Scripts
+		
+			
+		- Instance Types :
+		
+			https://aws.amazon.com/ec2/instance-types/
+			
+		
+
+#########################
+Day 35 : 30th Oct. 2025
+#########################	
+	
+	
+	AWS Compute Services ::::
+	
+		EC2 - Elastic Compute Cloud Service (VM)		
+		
+		- EC2 User Data 
+		
+			- Execute BootStrap Scripts		
+			
+		- Instance Types :
+		
+			https://aws.amazon.com/ec2/instance-types/	
+
+
+	AWS Charges for EC2 Instance :
+	
+		-> IPV4 Address - Public IP 
+		
+		-> IPV6 ==> Data Mining/Data Analysis 
+		
+		
+	-> Create EC2 Instance!
+	
+		--> User Data ::::
+		
+				- To execute the start-up task/script.
+				
+				
+			Setup a static Build_Server(Build Java Application) :::
+			
+				- Launch EC2 Instance 
+				
+				- Login to EC2 Instance 
+				
+					- Install the required tools
+					- Create DevOps Admin User 
+					
+			Setup the Test Server - QA 
+			
+				- Launch EC2 Instance -> WAS(Tomcat/Nginx/httpd),Selenium
+			
+		- Execute the below Script during start-up	:
+		
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello! You accessing web server - $(hostname -f)</h1>" > /var/www/html/index.html	
+
+
+	- AMI - Amazon Machine Image 
+	
+		--> Template - define the Platform to Launch EC2 instance
+		
+		--> Ubuntu AMI - LTS 
+		
+		
+		--> Infra Admin 
+			
+				--> Use Ubuntu AMI - LTS  & Create a VM
+				
+				--> Login to VM & Install all the required Security patches as per company's security policies
+				
+				--> Use this VM and create a New AMI 
+				
+				--> Allow users to use only this New AMI To Create EC2 Instances
+				
+		--> AMI can be used to Quickly launch the VMs as like the existing VM 
+		
+		
+		--> AMIs are region Specific -->
+		
+			--> EC2 Instance --> Web App Server --> Mumbai Region  ==> Sing Region
+			
+			
+		In Docker Module :
+		
+			Docker Commit:
+			
+			
+			KeyStore : awspkey1 -->  VM1			==> 
+			
+			devopsadmin --> ssh key --> public & private key 
+			
+			ubuntu 		--> ssh key --> public & private key 		*.pem 
+			
+				login to that VM using EC2 Instance Connect 
+				
+				--> delete the existing SSH Dir.
+				
+				--> Create SSH Key --> 
+				
+					- public_Key & Private_Key 
+				
+		
+		
+
+
+	- EC2 Storage Service! 
+	
+		--> S3 		==> 	
+		
+		--> EBS 	==>
+		
+		--> EFS 	==>
+	
+	
+	
