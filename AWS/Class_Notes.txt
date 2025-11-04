@@ -386,5 +386,208 @@ echo "<h1>Hello! You accessing web server - $(hostname -f)</h1>" > /var/www/html
 		
 		--> EFS 	==>
 	
+
 	
+#########################
+Day 36 : 31st Oct. 2025
+#########################		
+
+	- AWS Storage Service :
+		
+		--> S3 		==> 	
+		
+					https://uptime.is/99.99
+					
+					
+					https://aws.amazon.com/compute/sla/
+					
+					https://aws.amazon.com/s3/storage-classes/
+					
+					
+					Monitoring ==> 
+					
+					
+		
+		--> EBS 	==>
+		
+			List Volumes 
+		
+		
+	- High Availability and Scalability :::
+		
+		--> Load Balancing/Auto-Scaling Group
+		
+		--> How to Host a Static Web Page using S3 Bucket & Access thru Internet 
+						
+			
+	 
+########################
+Day 37 : 3rd Nov. 2025
+########################		
+
+
+	S3 Buckets enabled with IAM Policies to access S3 Objects
+	
+	Use AWS Cli Command :
+	
+		Install AWS Cli on Local Machine
+		
+			- AWS Configure :	
+			
+				AccessKey & Secret Key?
+				
+				IAM User -- should not be the root user
+				
+					Create AccessKey & Secret Key
+					
+					
+					
+	Access static Web Page deployed in S3 Bucket ::::
+	
+		S3 : To enable S3 Object access over Internet :
+		
+			-> Allow/Deny Internet Access while creating the S3 Bucket 	(Block Public Access settings for this bucket)
+			
+			-> IAM Policies 
+			
+					{
+					  "Version": "2012-10-17",
+					  "Statement": [
+						{
+						  "Sid": "Statement1",
+						  "Effect": "Allow",
+						  "Principal": "*",
+						  "Action": [
+							"s3:GetObject"
+						  ],
+						  "Resource": "arn:aws:s3:::ai-devops-bkt1/*"
+						}
+					  ]
+					}
+
+			
+	
+	ai-devops-bkt1
+	
+		https://ai-devops-bkt1.s3.ap-south-1.amazonaws.com/index.html
+	
+					
+		https://ai-devops-bkt1.s3.ap-south-1.amazonaws.com/index.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZ5TC42CPVECOWJCV%2F20251103%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20251103T022457Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCmFwLXNvdXRoLTEiRjBEAiAj9C3oxqlviLJCOdPxzjOQjSYLCROyXvhOtZp1iTHEXQIgbi4Qs4pzmO0V4pombG6yo%2FzFZhZ9eRf6PosLhx4zH20q9wIIVBAAGgw2ODIwMzM0Njc1NTEiDGTEcjJn1Xl%2FXT3HHCrUAtLCRtnrT2bm3lpXtSZJZ87ic35RO0RcUCggs8UYqw0nnLT85zpOErWN5m1pu4nZKfxqgQxuJ2JmTZUEE36yarcUmmcJol%2B0N7zRQDgSbhPVIzer4HbeFU1IUNORxxbCFFI7UkRzJwSpmp8M9fyQ%2BhieAoZSSFJITsmYr5MEP6KDQVguZZ7Me3h1b6OvrhL9GwUd3c60RFt20NSVJ6BmxzXhI71uxVAtu4iQsbA323prXqB2HyzmfBkE9o4LYfNMW%2BpoLV3T4UXcI%2F0KYEJTpHQRQNsVJQcyPipmY3kgx0n%2Ftuji5CyBhV8kITcrfDCsIrE352%2BJAu2n0DgXkDB3oHtJowqnLRNzK2%2FkUCG6RJzZ42NqDX6pE3DdqBUPOXutN0IrZ74gvZn0V%2FOxlMg1Pc7iDvpXg8szGPL3JwggU0bx5f8v7I0wZtVn9HwhS2GHKSuSB4EwgI6gyAY6rgIMIu1BneDGgA4C8Gvnis0zq1A4Fo1LK7Mjyv6FRVr8efgBHobM8rftq3Ubtw6MuGDS4pgO%2FvWeUohM3x0tSE56TmRBekUKI0fb%2Bt%2BjBTneFQwd9P5b5NtwtHK%2B1tiAqxCyFTCuoFN%2BposK9JvDuxh%2F1nF%2BT8ZF%2FdByS0qHfHVvNI9UDgbUPLoiokaON9YRc7KzWopSREMN0ff6zefokhDa9Iop5Qllf1n3bk853xT0avLxNwb5fY%2BIlGwYLpk5RSbc2YbklkawBuZTPfdF8JuAVGA16zoE8fu7bbF7YzgMcv90bpAjXdbHYgq2Px6XoSVAy8XKXRwXKVfZYiqXKftRHdVnNYuJNLM7J%2BBF1m2JnfcmKbk9UHRpn3fRQ5uwX8OSDsgUZz43kr7YDMq2og%3D%3D&X-Amz-Signature=f13dbb16e1e24a31e8547f3c2364140f3bc96015a066695707b94042eb62e284&X-Amz-SignedHeaders=host&response-content-disposition=inline			
+	
+
+
+	Interact with AWS Resources using AWS Cli :::
+	
+	
+		1. Install AWS Cli on Local Machine 
+		
+				https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+				
+				
+				Download and run the AWS CLI MSI installer for Windows (64-bit):
+
+					https://awscli.amazonaws.com/AWSCLIV2.msi
+		
+		2. Configure AWS Cli 
+		
+			--> User Name: 
+				- IAM User - damuser1
+				
+			--> AccessKey & SecretKey: 
+			
+				AccessKey 		: AKIAZjhghjMQ
+				Secret Key 		: g4EcYHHDjWw8QIqF5hp3/YdzU3yWoQY1s1fwe1B1
+				
+			--> Region Name 	: ap-south-1
+			
+			Upon installation, Open command prompt :
+			
+				aws --version				# Verify the Installation 
+				
+				aws configure
+
+					C:\Users\Admin>aws --version
+					aws-cli/2.27.50 Python/3.13.4 Windows/11 exe/AMD64
+
+					C:\Users\Admin>aws configure
+					AWS Access Key ID [****************HCIY]: AK6767MQ
+					AWS Secret Access Key [****************0fev]: g4878787y98yhbbkj
+					Default region name [ap-south-1]: ap-south-1
+					Default output format [None]:
+
+					C:\Users\Admin>				
+					
+			
+		3. Use AWS Cli Commands 
+		
+			https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+		
+			https://docs.aws.amazon.com/cli/latest/userguide/cli_s3_code_examples.html
+			
+			
+
+	- High Availability and Scalability :::
+		
+		--> Load Balancing/Auto-Scaling Group	
+		
+		
+########################
+Day 38 : 4th Nov. 2025
+########################		
+		
+	
+	Working with Application Load Balancer :
+	
+		1. Create 2 or 3 Web Application Servers.(EC2 Instances - running httpd/Nginx/Tomcat)
+		
+		2. Create Target Group and Add these EC2 Instances 
+		
+		3. Create Load Balancer 
+		
+				- Add this Target Group 
+		
+				- Create Security Group using http/https internet facing
+				
+				- Attach this Security Group to Load Balancer 
+				
+		4. Update the Security Group of Load Balancer to Target Instances Security Group
+		
+
+User Data ::::
+		
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello! You accessing web server - $(hostname -f)</h1>" > /var/www/html/index.html		
+		
+		
+	Load Balancer is a fully Managed AWS Service. - Paid Service.
+	
+	
+	Azure/GCP --> $200 for first month.
+	
+	
+
+Next :::
+
+	AWS Networking :
+	
+		Private Network :
+
+		VPC/Subnet/Internet Gateway/Security Group/NACL/Route Table/Route Table Association/
+	
+	AWS Security :	
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
