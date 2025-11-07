@@ -581,7 +581,109 @@ Next :::
 	AWS Security :	
 
 		
+
+
 		
+########################
+Day 39 : 6th Nov. 2025
+########################			
+		
+	AWS Networking :
+	
+		Private Network :
+
+		VPC/Subnet/Internet Gateway/Security Group/NACL/Route Table/Route Table Association/
+	
+	
+	Computer Networking :
+	
+		Networking Components :
+		
+		Types of Networks :
+		
+
+
+
+
+
+########################
+Day 40 : 7th Nov. 2025
+########################
+
+	- CIDR :
+	
+		--> Classless Inter Domain Routing (CIDR)
+		
+		How to calculate the Number of IP Adresses:
+		
+		
+		IPV4 Address :
+
+		==>	4.3 Billion IPs for IPV4		=> Public IPs
+
+
+		==> IPV4 is 32 Bit Address:
+		
+			xx.xx.xx.xx 
+			
+			each octat has 8 bits so 8+8+8+8 = 32 Bits
+			
+		
+		Eg.: 
+
+
+			
+			10.0.0.0/32		==>	32 - 32 	==> 0		==> 2^0		=> 1
+			
+							==> Create one IP Address : 10.0.0.0
+
+			
+			10.0.0.0/28 	==> 32 - 28 	==> 4 		==> 2^4		=> 16
+			
+							==> Create 16 IP Address :	10.0.0.0 to 10.0.0.15 
+			
+		
+			10.0.0.0/24 	==> 32 - 24 	==> 8 		==> 2^8		=> 256
+							
+							==> Create 256 IP Address :	10.0.0.0 to 10.0.0.255 
+									10.0.0.0,10.0.0.1,10.0.0.2
+		
+			
+			10.0.0.0/16		==> 32 - 16 	==> 31 		==> 2^31	=> 65,536
+								65,536 IP Addresses 
+			
+			10.0.0.0/8		==>	32 - 8 		==> 24 		==> 2^24	=> 16,777,216
+								16,777,216 IP Addresses 
+				
+
+	https://mxtoolbox.com/subnetcalculator.aspx				
+
+
+		- CIDR 
+		
+		- VPC 
+		
+		- Subnet 
+		
+		
+		
+	VPC/Subnet/CIDR/IP Address/Route Table/Route Table Association/SG/NACL 
+
+
+Next :
+
+		Demo - 
+		
+			VPC 
+			
+				Subnet1 - public 
+					
+					EC2 Instances 
+				
+				Subnet2 - Private 
+
+					EC2 Instances 
+			
 		
 		
 		
