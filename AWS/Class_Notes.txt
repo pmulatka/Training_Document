@@ -803,6 +803,86 @@ Day 42 : 10th Nov. 2025
 			
 		
 			
+
+		
+
+########################
+Day 43 : 13th Nov. 2025
+########################			
+		
+	Data Base Services :::
+
+	AWS Security Services :::
+	
+	AWS Serverless - Lambda 
+	
+	AWS Config 
+	
+		- SNS - Email Notifications 
+		
+		- SQS - Message Queue
+		
+	AWS Monitoring - AWS Cloud Watch 
+	
+	AWS - Container Services - ECR/ECS/EKS
+	
+	AWS Project : 
+	
+	
+Next :
+
+	Demo of SQS 
+	
+	AWS Serverless - Lambda 
+	
+	AWS Security 
+	
+	Azure :
+	
+
+	
+########################
+Day 44 : 14th Nov. 2025
+########################
+
+	AWS Security and Secret Manager ::
+	
+		- HTTPS
+		
+		- SSL & TLS Certificates 
+		
+		
+			keytool ==> Utility to update or manage the CA Certificates 
+			
+			KeyStore ==> ca-cert
+			
+			
+			Ansible ==> To Update the Certs. 
+			
+		
+		- AWS KMS
+	
+	Lambda
+	
+	AWS Cloudformation - IAC
+	
+		-> Cloudformation
+		-> Terraform 
+		-> SDK --> Software Development Kit 
+		
+				==> AWS Resource Libraries 
+					--> Python/
+					
+					==> AI Based Solutions 
+					
+						--> Python ==> import boto3 Python Library for Resource Provisioning/Configurations
+	
+ 
+
+
+
+
+
 		
 			
 
