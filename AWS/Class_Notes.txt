@@ -685,9 +685,209 @@ Next :
 					EC2 Instances 
 			
 		
+
+
+########################
+Day 41 : 10th Nov. 2025
+########################
+
+	AWS VPC :
+
+
+	VPC Design Architecture :
+	
+	pl-ai-vpc1			vpc-0e3ec41e65abc68bd
+	
+	pl-ai-vpc1-igw
+	
+	pl-ai-vpc1-public
+
+	pl-ai-vpc1-private-sg1 
+	
+	pl-ai-vpc1-public-sg2		
 		
 		
+
+
+########################
+Day 42 : 10th Nov. 2025
+########################
+
+
+	VPC Connectivity Options 
+	
+	Data Base Services ::::
+	
+		Data is backbone for any IT Service!
 		
+	Stored 
+		- Volume 
+		- Security 
+		- Cost 
+		
+	
+	Easily Accessible
+	
+		- Frequency of Access 
+		- Security
+		
+		
+	Data Management :::	--> Create/Add/Update/Delete 
+	
+		-> File System 
+		
+		-> S3 
+		
+		-> EBS / EFS Volume 
+	
+	
+	Accessing Data :
+	
+		- Through Batch Process 					==> File Managements
+			-> To Handle Hugh volume of data.
+		
+		- Through Online Process 
+			-> For Instant - Dynamic Process
+			-> To handle less volume of data.
+			
+	Any File System, is sequential by default 
+	
+	DataBase Management system, is used to process Sequential/Random/Dynamic Access to data.
+	
+	Database is a collection of Tables 
+	
+	Tables are the collection of Rows and Columns
+				
+	RDBMS :
+	
+		- To ensure integrity 
+		
+		- Referential Integrity Constraint
+		
+	- SQL ::: Structured Query Language.
+	
+	
+	Employee_DataBase ::::
+	
+		Table1 : Employee_Primary_Details 
+		
+			Emp_No		Emp_Name	Emp_DOJ		Emp_Mobile_Number	Emp_Email_Id	Emp_Project_Id
+			
+			1001		xxxxxxxxxx	20/08/2025	123456789			xxx@asdf.com	proj_1010
+			1002		xxxxxxxxxx	20/08/2025	123456781			xxxe@asdf.com	proj_1001
+			1003		xxxxxxxxxx	20/08/2025	123456782			xxxr@asdf.com	proj_1001
+			1004		xxxxxxxxxx	20/08/2025	123456783			xxxe@asdf.com	proj_1001
+			1005		xxxxxxxxxx	20/08/2025						xxx3@asdf.com	proj_1001
+
+		Table2 : Employee_Project_Details 
+		
+			Emp_Project_Id		Project_Name 		Client_Name
+			
+			proj_1001			qqqqqqqq			sdsdfsdff
+			proj_1002			qqqqqqqq1			sdsdfsdff1
+			proj_1003			qqqqqqqq2			sdsdfsdff2
+			proj_1004			qqqqqqqq3			sdsdfsdff
+			proj_1005			qqqqqqqq4			sdsdfsdff3
+	
+	
+	Role of DevOps/Cloud Architects/Database Administrator :
+	
+		Design the Database System/Service Architecture :
+		
+		1. Choose the Database Engine 
+		
+			- MySQL/ORACLE ....
+			
+		2. Setup/Configure Database Engine 
+		
+			
+		
+			
+
+		
+
+########################
+Day 43 : 13th Nov. 2025
+########################			
+		
+	Data Base Services :::
+
+	AWS Security Services :::
+	
+	AWS Serverless - Lambda 
+	
+	AWS Config 
+	
+		- SNS - Email Notifications 
+		
+		- SQS - Message Queue
+		
+	AWS Monitoring - AWS Cloud Watch 
+	
+	AWS - Container Services - ECR/ECS/EKS
+	
+	AWS Project : 
+	
+	
+Next :
+
+	Demo of SQS 
+	
+	AWS Serverless - Lambda 
+	
+	AWS Security 
+	
+	Azure :
+	
+
+	
+########################
+Day 44 : 14th Nov. 2025
+########################
+
+	AWS Security and Secret Manager ::
+	
+		- HTTPS
+		
+		- SSL & TLS Certificates 
+		
+		
+			keytool ==> Utility to update or manage the CA Certificates 
+			
+			KeyStore ==> ca-cert
+			
+			
+			Ansible ==> To Update the Certs. 
+			
+		
+		- AWS KMS
+	
+	Lambda
+	
+	AWS Cloudformation - IAC
+	
+		-> Cloudformation
+		-> Terraform 
+		-> SDK --> Software Development Kit 
+		
+				==> AWS Resource Libraries 
+					--> Python/
+					
+					==> AI Based Solutions 
+					
+						--> Python ==> import boto3 Python Library for Resource Provisioning/Configurations
+	
+ 
+
+
+
+
+
+		
+			
+
+
+
 		
 		
 		
